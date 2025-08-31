@@ -1,0 +1,1953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GameHub - Ultimate Gaming Platform. Discover premium games, connect with fellow gamers, and experience the future of interactive entertainment in our quantum-enhanced gaming universe.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0a0a0f">
+    <title>GameHub - Ultimate Gaming Platform | Premium Games & Digital Entertainment</title>
+
+    <!-- Optimized Font Loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Exo+2:wght@300;400;500;600;700;800;900&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "GameHub",
+        "description": "Ultimate Gaming Platform offering premium games and digital entertainment experiences",
+        "url": "https://gamehub.example.com",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://gamehub.example.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "GameHub",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://gamehub.example.com/logo.png"
+            }
+        }
+    }
+    </script>
+
+    <!-- All CSS Inlined for Optimal Loading -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-glow: #667eea;
+            --secondary-glow: #764ba2;
+            --accent-glow: #f093fb;
+            --success-glow: #4facfe;
+            --warning-glow: #f6d365;
+            --danger-glow: #ff6b6b;
+            --neon-blue: #00f5ff;
+            --neon-pink: #ff006e;
+            --neon-green: #39ff14;
+            --neon-purple: #bf00ff;
+            --cyber-orange: #ff9500;
+            --quantum-gold: #ffd700;
+            --matrix-red: #ff0040;
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #1a1a2e;
+            --bg-card: #16213e;
+            --bg-glass: rgba(0, 0, 0, 0.3);
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --border-color: #475569;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            --glow-primary: rgba(102, 126, 234, 0.5);
+            --glow-secondary: rgba(118, 75, 162, 0.5);
+        }
+
+        body {
+            font-family: 'Rajdhani', 'Arial', sans-serif;
+            font-display: swap;
+            transition: none;
+            overflow-x: hidden;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .orbitron {
+            font-family: 'Orbitron', 'Courier New', monospace;
+            font-display: swap;
+        }
+
+        .exo {
+            font-family: 'Exo 2', 'Arial', sans-serif;
+            font-display: swap;
+        }
+
+        /* Skeleton Loading States */
+        .skeleton {
+            background: linear-gradient(90deg, var(--bg-card) 25%, rgba(102, 126, 234, 0.1) 50%, var(--bg-card) 75%);
+            background-size: 200% 100%;
+            animation: skeleton-loading 1.5s infinite;
+        }
+
+        @keyframes skeleton-loading {
+            0% {
+                background-position: 200% 0;
+            }
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        .skeleton-card {
+            background: var(--bg-card);
+            border-radius: 10px;
+            padding: 0;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            min-height: 400px;
+        }
+
+        .skeleton-image {
+            height: 200px;
+            width: 100%;
+            background: var(--bg-secondary);
+        }
+
+        .skeleton-content {
+            padding: 24px;
+        }
+
+        .skeleton-title {
+            height: 24px;
+            width: 70%;
+            margin-bottom: 12px;
+            border-radius: 4px;
+        }
+
+        .skeleton-description {
+            height: 16px;
+            width: 100%;
+            margin-bottom: 8px;
+            border-radius: 4px;
+        }
+
+        .skeleton-description:last-child {
+            width: 80%;
+        }
+
+        .skeleton-tags {
+            display: flex;
+            gap: 8px;
+            margin: 16px 0;
+        }
+
+        .skeleton-tag {
+            height: 24px;
+            width: 60px;
+            border-radius: 12px;
+        }
+
+        .skeleton-button {
+            height: 48px;
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 12px;
+        }
+
+        /* Optimized Navbar */
+        .navbar {
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+            transition: background-color 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+            will-change: background-color, box-shadow;
+        }
+
+        .navbar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink), var(--neon-green), var(--neon-purple));
+            background-size: 400% 100%;
+            animation: rainbow-flow 3s linear infinite;
+        }
+
+        @keyframes rainbow-flow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 10, 15, 0.98);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Optimized Gaming Logo */
+        .gaming-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+            cursor: pointer;
+            will-change: transform;
+        }
+
+        .gaming-logo::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(45deg, var(--primary-glow), var(--secondary-glow), var(--accent-glow));
+            border-radius: 12px;
+            opacity: 0;
+            filter: blur(10px);
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .gaming-logo:hover::before {
+            opacity: 0.7;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        /* Optimized Hero Section */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%),
+                linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+        }
+
+        /* Optimized Hero Title */
+        .hero-title {
+            font-size: clamp(2rem, 8vw, 3rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb, #4facfe);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient-shift 4s ease-in-out infinite;
+            position: relative;
+            cursor: pointer;
+            will-change: background-position;
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fade-in-up 1s ease-out 0.5s both;
+            position: relative;
+        }
+
+        /* Navigation Links */
+        .nav-link {
+            position: relative;
+            padding: 10px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            overflow: hidden;
+            text-decoration: none;
+            color: #cbd5e1;
+            will-change: transform, color;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary-glow), var(--secondary-glow));
+            border-radius: 8px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::before {
+            opacity: 0.2;
+        }
+
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+            color: #fff !important;
+        }
+
+        /* Explore Button */
+        .explore-btn-container {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+
+        .explore-btn {
+            width: 100%;
+            padding: 20px 60px;
+            border: 2px solid var(--neon-blue);
+            border-radius: 50px;
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px);
+            color: var(--neon-blue);
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            font-family: 'Orbitron', monospace;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            will-change: transform, color, box-shadow;
+        }
+
+        .explore-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .explore-btn:hover::before {
+            opacity: 1;
+        }
+
+        .explore-btn:hover {
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 20px 60px rgba(0, 245, 255, 0.4);
+        }
+
+        /* Stats Display */
+        .stats-display {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            display: flex;
+            gap: 20px;
+            z-index: 10;
+        }
+
+        .stat-item {
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid var(--neon-green);
+            border-radius: 10px;
+            padding: 10px 15px;
+            font-family: 'Orbitron', monospace;
+            color: var(--neon-green);
+            text-align: center;
+            min-width: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-value {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            opacity: 0.8;
+        }
+
+        /* Audio Visualizer */
+        .audio-visualizer {
+            display: flex;
+            align-items: end;
+            justify-content: center;
+            height: 60px;
+            gap: 2px;
+            margin: 1rem 0;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fade-in-up 1s ease-out 1s both;
+        }
+
+        .audio-bar {
+            width: 4px;
+            background: linear-gradient(to top, var(--neon-blue), var(--neon-pink));
+            border-radius: 2px;
+            animation: audio-bounce 1s infinite ease-in-out;
+            will-change: height;
+        }
+
+        .audio-bar:nth-child(2n) { animation-delay: 0.1s; }
+        .audio-bar:nth-child(3n) { animation-delay: 0.2s; }
+        .audio-bar:nth-child(4n) { animation-delay: 0.3s; }
+
+        @keyframes audio-bounce {
+            0%, 100% { height: 10px; }
+            50% { height: 40px; }
+        }
+
+        /* Sections */
+        .section {
+            padding: 20px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: clamp(1.5rem, 6vw, 2rem);
+            font-weight: 900;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            font-family: 'Orbitron', monospace;
+        }
+
+        .section-description {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 4rem;
+            line-height: 1.8;
+        }
+
+        /* About Section */
+        .about-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .about-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            will-change: transform, box-shadow;
+        }
+
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary-glow), var(--secondary-glow));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+            border-radius: 20px;
+        }
+
+        .about-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-icon {
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            display: inline-block;
+            position: relative;
+        }
+
+        /* Progress Rings */
+        .progress-ring {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .progress-ring svg {
+            transform: rotate(-90deg);
+            width: 100%;
+            height: 100%;
+        }
+
+        .progress-ring circle {
+            fill: none;
+            stroke-width: 8;
+            stroke-linecap: round;
+        }
+
+        .progress-ring .bg-circle {
+            stroke: rgba(0, 245, 255, 0.2);
+        }
+
+        .progress-ring .progress-circle {
+            stroke: var(--neon-blue);
+            stroke-dasharray: 283;
+            stroke-dashoffset: 283;
+            transition: stroke-dashoffset 2s ease-out;
+            filter: drop-shadow(0 0 5px var(--neon-blue));
+        }
+
+        .progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Orbitron', monospace;
+            font-size: 1.2rem;
+            color: var(--neon-blue);
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        @media (max-width: 1024px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        .contact-form {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .form-label {
+            display: block;
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.9rem;
+            font-family: 'Orbitron', monospace;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            will-change: border-color, box-shadow, transform;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 0 4px rgba(0, 245, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Orbitron', monospace;
+            will-change: transform, background, box-shadow;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(0, 245, 255, 0.4);
+        }
+
+        /* Social Cards */
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-card {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            will-change: transform, box-shadow;
+        }
+
+        .social-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            will-change: transform;
+        }
+
+        .faq-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-weight: 600;
+            color: var(--text-primary);
+            transition: background-color 0.3s ease;
+            position: relative;
+        }
+
+        .faq-question:hover {
+            background: var(--bg-glass);
+        }
+
+        .faq-icon {
+            margin-left: auto;
+            font-size: 1.2rem;
+            color: var(--neon-blue);
+            transition: transform 0.3s ease;
+            will-change: transform;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            will-change: max-height, padding;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 200px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--text-primary);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-family: 'Orbitron', monospace;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+            position: relative;
+            will-change: color, transform;
+        }
+
+        .footer-section a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 0;
+            height: 2px;
+            background: var(--neon-blue);
+            transition: width 0.3s ease;
+        }
+
+        .footer-section a:hover::before {
+            width: 100%;
+        }
+
+        .footer-section a:hover {
+            color: var(--neon-blue);
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            will-change: transform;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            backdrop-filter: blur(20px);
+            display: none;
+        }
+
+        .mobile-menu.show {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 16px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .mobile-menu a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 0;
+            background: var(--neon-blue);
+            transition: width 0.3s ease;
+        }
+
+        .mobile-menu a:hover::before { width: 4px; }
+
+        .mobile-menu a:hover {
+            background: var(--bg-glass);
+            transform: translateX(10px);
+            color: var(--neon-blue);
+        }
+
+        @media (min-width: 768px) {
+            #mobileMenuBtn{
+                display: none;
+            }
+        }
+
+        /* Success/Error Messages */
+        .success-message, .error-message {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 16px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            z-index: 10000;
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+            will-change: transform;
+        }
+
+        .success-message {
+            background: linear-gradient(135deg, var(--neon-green), var(--success-glow));
+            color: white;
+            border: 1px solid var(--neon-green);
+        }
+
+        .error-message {
+            background: linear-gradient(135deg, var(--danger-glow), #ff4757);
+            color: white;
+            border: 1px solid var(--danger-glow);
+            top: 80px;
+        }
+
+        .success-message.show, .error-message.show {
+            transform: translateX(0);
+        }
+
+        /* Optimized Animations */
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fade-in-left {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fade-in-right {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fade-in-up 0.8s ease-out both;
+        }
+
+        .animate-fade-in-left {
+            animation: fade-in-left 0.8s ease-out both;
+        }
+
+        .animate-fade-in-right {
+            animation: fade-in-right 0.8s ease-out both;
+        }
+
+        .animate-delay-1 { animation-delay: 0.1s; }
+        .animate-delay-2 { animation-delay: 0.2s; }
+        .animate-delay-3 { animation-delay: 0.3s; }
+
+        /* Holographic Effect */
+        .holographic {
+            background: linear-gradient(45deg, 
+                var(--neon-blue) 0%, 
+                var(--neon-pink) 25%, 
+                var(--neon-green) 50%, 
+                var(--neon-purple) 75%, 
+                var(--neon-blue) 100%);
+            background-size: 400% 400%;
+            animation: holographic-shift 3s ease infinite;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            will-change: background-position;
+        }
+
+        @keyframes holographic-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Focus Styles */
+        .focus-visible:focus-visible {
+            outline: 2px solid var(--neon-blue);
+            outline-offset: 2px;
+        }
+
+        /* Utility Classes */
+        .hidden { display: none; }
+        .fixed { position: fixed; }
+        .top-0 { top: 0; }
+        .left-0 { left: 0; }
+        .right-0 { right: 0; }
+        .z-50 { z-index: 50; }
+        .px-4 { padding-left: 1rem; padding-right: 1rem; }
+        .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+        .py-20 { padding-top: 5rem; padding-bottom: 5rem; }
+        .max-w-7xl { max-width: 80rem; }
+        .mx-auto { margin-left: auto; margin-right: auto; }
+        .flex { display: flex; }
+        .items-center { align-items: center; }
+        .justify-between { justify-content: space-between; }
+        .text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+        .text-2xl { font-size: 1.5rem; line-height: 2rem; }
+        .text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+        .font-bold { font-weight: 700; }
+        .md\:flex { display: none; }
+        .space-x-8 > * + * { margin-left: 2rem; }
+        .space-x-4 > * + * { margin-left: 1rem; }
+        .space-y-6 > * + * { margin-top: 1.5rem; }
+        .space-y-8 > * + * { margin-top: 2rem; }
+        .md\:hidden { display: block; }
+        .p-3 { padding: 0.75rem; }
+        .rounded-full { border-radius: 9999px; }
+        .transition-all { transition-property: all; }
+        .duration-300 { transition-duration: 300ms; }
+        .text-center { text-align: center; }
+        .relative { position: relative; }
+        .z-10 { z-index: 10; }
+        .mb-2 { margin-bottom: 0.5rem; }
+        .mb-4 { margin-bottom: 1rem; }
+        .mb-6 { margin-bottom: 1.5rem; }
+        .mr-2 { margin-right: 0.5rem; }
+        .mr-3 { margin-right: 0.75rem; }
+        .mt-4 { margin-top: 1rem; }
+        .w-full { width: 100%; }
+        .inline-block { display: inline-block; }
+
+        @media (min-width: 768px) {
+            .md\:flex { display: flex !important; }
+            .md\:hidden { display: none !important; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .explore-btn-container {
+                max-width: 90%;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .social-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .stats-display {
+                display: none;
+            }
+
+            /* Mobile Menu Button Fix */
+            #mobileMenuBtn {
+                background: rgba(0, 245, 255, 0.1);
+                border: 1px solid rgba(0, 245, 255, 0.3);
+                color: var(--neon-blue);
+            }
+
+            #mobileMenuBtn:hover {
+                background: rgba(0, 245, 255, 0.2);
+                transform: scale(1.05);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Screen Reader Only */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
+            border-radius: 6px;
+        }
+
+        /* Selection */
+        ::selection {
+            background: var(--neon-blue);
+            color: white;
+        }
+    </style>
+</head>
+<body id="body">
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar fixed top-0 left-0 right-0 z-50 px-4 py-3" id="navbar" role="navigation" aria-label="Main navigation">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Logo -->
+            <div class="gaming-logo" role="button" tabindex="0" aria-label="GameHub logo - click for easter egg">
+                <i class="logo-icon fa-solid fa-gamepad fa-beat" aria-hidden="true"></i>
+                <span class="text-xl font-bold orbitron holographic">GameHub</span>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="nav-link" aria-label="Go to home section"><i class="fa-solid fa-house-user"></i> Home</a>
+                <a href="games.html" class="nav-link" aria-label="Go to games section"><i class="fa fa-gamepad"></i> Games</a>
+                <a href="blogs.html" class="nav-link holographic" aria-label="Go to about section"><i class="fa fa-blog"></i> Blogs</a>
+                <a href="#about" class="nav-link" aria-label="Go to about section"><i class="fa fa-address-card"></i> About</a>
+                <a href="#contact" class="nav-link" aria-label="Go to contact section"><i class="fa fa-headset"></i> Contact Us</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" style="background-color: #0a0a0f;" class="mobile-menu-btn p-3 rounded-full transition-all duration-300" aria-label="Toggle mobile menu" aria-expanded="false">
+                <i class="fas fa-bars text-xl" style="color: var(--text-primary)" aria-hidden="true"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu">
+            <a href="#home" role="menuitem">Home</a>
+            <a href="games.html" role="menuitem">Games</a>
+            <a href="blogs.html" role="menuitem" class="holographic"><i class="fa fa-blog"></i> Blogs</a>
+            <a href="#about" role="menuitem">About</a>
+            <a href="#contact" role="menuitem">Contact Us</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <!-- Stats Display -->
+        <div class="stats-display" aria-label="Live statistics">
+            <div class="stat-item">
+                <div class="stat-value" id="onlineUsers">1,337</div>
+                <div class="stat-label">PLAYERS</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">20+</div>
+                <div class="stat-label">GAMES</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">99.9%</div>
+                <div class="stat-label">UPTIME</div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 py-20 text-center relative z-10">
+            <h1 class="hero-title orbitron holographic" data-text="Welcome to GameHub">
+                Welcome to GameHub
+            </h1>
+            <br>
+            
+            <p class="hero-subtitle" id="typing-text"></p>
+
+            <script>
+            const text = `Enter the ultimate gaming dimension where pixels meet perfection. Discover premium games, connect with fellow gamers, and experience the future of interactive entertainment.`;
+            
+            let i = 0;
+            function typeWriter() {
+                if (i < text.length) {
+                    document.getElementById("typing-text").innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 20); // typing speed in ms
+                }
+            }
+              typeWriter();
+            </script>
+
+
+            <!-- Audio Visualizer -->
+            <div class="audio-visualizer" aria-hidden="true">
+                <div class="audio-bar" style="height: 20px;"></div>
+                <div class="audio-bar" style="height: 35px;"></div>
+                <div class="audio-bar" style="height: 15px;"></div>
+                <div class="audio-bar" style="height: 40px;"></div>
+                <div class="audio-bar" style="height: 25px;"></div>
+                <div class="audio-bar" style="height: 30px;"></div>
+                <div class="audio-bar" style="height: 35px;"></div>
+                <div class="audio-bar" style="height: 15px;"></div>
+                <div class="audio-bar" style="height: 40px;"></div>
+                <div class="audio-bar" style="height: 25px;"></div>
+                <div class="audio-bar" style="height: 30px;"></div>
+                <div class="audio-bar" style="height: 45px;"></div>
+                <div class="audio-bar" style="height: 20px;"></div>
+                <div class="audio-bar" style="height: 35px;"></div>
+                <div class="audio-bar" style="height: 15px;"></div>
+            </div>
+
+            <!-- Explore Game Zone Button -->
+            <div class="explore-btn-container">
+                <a href="index.html" class="explore-btn focus-visible" aria-label="Explore our game collection">
+                    <i class="fas fa-rocket mr-3" aria-hidden="true"></i>Explore Game Zone
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about-section" style="background-color: var(--bg-secondary)">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="section-title orbitron holographic"><i class="fa fa-computer"></i> SYSTEM OVERVIEW</h2>
+            <p class="section-description">
+                GameHub operates as the central nexus for digital entertainment distribution. 
+                Our quantum-enhanced algorithms curate experiences from across the gaming spectrum.
+            </p>
+
+            <!-- Core Features Grid -->
+            <div class="about-grid">
+                <div class="about-card animate-fade-in-left animate-delay-1">
+                    <i class="about-icon fas fa-trophy" aria-hidden="true"></i>
+                    <h3 class="text-2xl font-bold mb-4 holographic">PREMIUM QUALITY</h3>
+                    <p style="color: var(--text-secondary)">Every title undergoes rigorous quantum testing protocols</p>
+                    <div class="progress-ring mt-4" role="img" aria-label="98% quality score">
+                        <svg>
+                            <circle class="bg-circle" cx="60" cy="60" r="45"></circle>
+                            <circle class="progress-circle" cx="60" cy="60" r="45" style="--progress-offset: 71;"></circle>
+                        </svg>
+                        <div class="progress-text">98%</div>
+                    </div>
+                </div>
+                <div class="about-card animate-fade-in-up animate-delay-2">
+                    <i class="about-icon fas fa-users" aria-hidden="true"></i>
+                    <h3 class="text-2xl font-bold mb-4 holographic">GLOBAL NETWORK</h3>
+                    <p style="color: var(--text-secondary)">Connected gamers across infinite digital realms</p>
+                    <div class="progress-ring mt-4" role="img" aria-label="50 million plus users">
+                        <svg>
+                            <circle class="bg-circle" cx="60" cy="60" r="45"></circle>
+                            <circle class="progress-circle" cx="60" cy="60" r="45" style="--progress-offset: 28;"></circle>
+                        </svg>
+                        <div class="progress-text">50M+</div>
+                    </div>
+                </div>
+                <div class="about-card animate-fade-in-right animate-delay-3">
+                    <i class="about-icon fas fa-shield-alt" aria-hidden="true"></i>
+                    <h3 class="text-2xl font-bold mb-4 holographic">SECURITY MATRIX</h3>
+                    <p style="color: var(--text-secondary)">Military-grade encryption protects all data streams</p>
+                    <div class="progress-ring mt-4" role="img" aria-label="100% security rating">
+                        <svg>
+                            <circle class="bg-circle" cx="60" cy="60" r="45"></circle>
+                            <circle class="progress-circle" cx="60" cy="60" r="45" style="--progress-offset: 0;"></circle>
+                        </svg>
+                        <div class="progress-text">100%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section" style="background-color: var(--bg-primary)">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="section-title orbitron holographic"><i class="	fa-solid fa-envelope"></i> ESTABLISH CONNECTION</h2>
+            <p class="section-description">
+                Initialize communication protocols with the GameHub command center
+            </p>
+
+            <div class="contact-grid">
+                <!-- Contact Form -->
+                <div class="contact-form animate-fade-in-left">
+                    <h3 class="text-2xl font-bold mb-6 holographic">TRANSMISSION INTERFACE</h3>
+                    <form id="contactForm" class="space-y-6" novalidate>
+                        <div class="form-group">
+                            <label for="userName" class="form-label">FULL NAME</label>
+                            <input type="text" id="userName" name="userName" required class="form-input focus-visible" aria-describedby="userName-error">
+                            <div id="userName-error" class="error-message" role="alert"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="userEmail" class="form-label">EMAIL</label>
+                            <input type="email" id="userEmail" name="userEmail" required class="form-input focus-visible" aria-describedby="userEmail-error">
+                            <div id="userEmail-error" class="error-message" role="alert"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="userSubject" class="form-label">SUBJECT</label>
+                            <input type="text" id="userSubject" name="userSubject" required class="form-input focus-visible" aria-describedby="userSubject-error">
+                            <div id="userSubject-error" class="error-message" role="alert"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="userMessage" class="form-label">MESSAGE</label>
+                            <textarea id="userMessage" name="userMessage" required class="form-input form-textarea focus-visible" aria-describedby="userMessage-error"></textarea>
+                            <div id="userMessage-error" class="error-message" role="alert"></div>
+                        </div>
+                        <button type="submit" class="submit-btn" aria-describedby="submit-status">
+                            <i class="fas fa-paper-plane mr-2" aria-hidden="true"></i>SEND MESSAGE
+                        </button>
+                        <div id="submit-status" class="sr-only" role="status" aria-live="polite"></div>
+                    </form>
+                </div>
+
+                <!-- Contact Cards & FAQs -->
+                <div class="space-y-8 animate-fade-in-right">
+                    <!-- Social Media Cards -->
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 holographic">COMMUNICATION CHANNELS</h3>
+                        <div class="social-grid">
+                            <div class="social-card " onclick="openSocialLink('whatsapp')" role="button" tabindex="0" aria-label="Contact us on WhatsApp">
+                                <i class="social-icon fab fa-whatsapp" style="color: green;" aria-hidden="true"></i>
+                                <h4 class="font-bold holographic">WhatsApp</h4>
+                                <p class="text-sm" style="color: var(--text-secondary)">Instant messaging</p>
+                            </div>
+                            <div class="social-card" onclick="openSocialLink('telegram')" role="button" tabindex="0" aria-label="Contact us on Telegram">
+                                <i class="social-icon fab fa-telegram" style="color: #2196f3;" aria-hidden="true"></i>
+                                <h4 class="font-bold holographic">Telegram</h4>
+                                <p class="text-sm" style="color: var(--text-secondary)">Secure channel</p>
+                            </div>
+                            <div class="social-card" onclick="openSocialLink('facebook')" role="button" tabindex="0" aria-label="Visit our Facebook page">
+                                <i class="social-icon fab fa-facebook" style="color: #1e88e5;" aria-hidden="true"></i>
+                                <h4 class="font-bold holographic">Facebook</h4>
+                                <p class="text-sm" style="color: var(--text-secondary)">Social network</p>
+                            </div>
+                            <div class="social-card" onclick="openSocialLink('discord')" role="button" tabindex="0" aria-label="Join our Discord server">
+                                <i class="social-icon fab fa-discord" style="color: #9c27b0;" aria-hidden="true"></i>
+                                <h4 class="font-bold holographic">Discord</h4>
+                                <p class="text-sm" style="color: var(--text-secondary)">Gaming hub</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQs -->
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 holographic">KNOWLEDGE BASE</h3>
+                        <div class="faq-container" id="faqContainer">
+                            <!-- FAQs will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer section" style="background-color: var(--bg-secondary)">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="footer-grid">
+                <!-- Company Info -->
+                <div class="animate-fade-in-left">
+                    <div class="gaming-logo mb-4">
+                        <i class="logo-icon fa-solid fa-gamepad" aria-hidden="true"></i>
+                        <span class="text-xl font-bold orbitron holographic">GameHub</span>
+                    </div>
+                    <p class="mb-4" style="color: var(--text-secondary)">
+                        Your neural interface to the infinite gaming metaverse. Where digital dreams become reality.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                        <a href="#" class="social-link" aria-label="Follow us on Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                        <a href="#" class="social-link" aria-label="Follow us on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="#" class="social-link" aria-label="Join our Discord"><i class="fab fa-discord" aria-hidden="true"></i></a>
+                        <a href="#" class="social-link" aria-label="Subscribe to our YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                        <a href="#" class="social-link" aria-label="Watch us on Twitch"><i class="fab fa-twitch" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-section animate-fade-in-up animate-delay-1">
+                    <h3 class="holographic">NAVIGATION</h3>
+                    <ul role="list">
+                        <li><a href="#home">Home Portal</a></li>
+                        <li><a href="games.html">Game Library</a></li>
+                        <li><a href="blogs.html">Blogs</a></li>
+                        <li><a href="#about">System Info</a></li>
+                        <li><a href="#contact">Communications</a></li>
+                    </ul>
+                </div>
+
+                <!-- Game Categories -->
+                <div class="footer-section animate-fade-in-up animate-delay-2">
+                    <h3 class="holographic">GAME MATRIX</h3>
+                    <ul role="list">
+                        <li><a href="#">Action Protocols</a></li>
+                        <li><a href="#">Adventure Modules</a></li>
+                        <li><a href="#">Strategy Engines</a></li>
+                        <li><a href="#">Velocity Simulations</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div class="footer-section animate-fade-in-right">
+                    <h3 class="holographic">SUPPORT SYSTEMS</h3>
+                    <ul role="list">
+                        <li><a href="#">Help Database</a></li>
+                        <li><a href="#">Privacy Protocols</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#contact">Tech Support</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t pt-1 text-center animate-fade-in-up" style="border-color: var(--border-color)">
+                <p style="color: var(--text-secondary)" class="holographic">
+                    © 2025 GameHub Neural Network. All rights reserved. Powered by quantum computing.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success/Error Messages -->
+    <div id="successMessage" class="success-message" role="alert" aria-live="polite">
+        <i class="fas fa-check-circle mr-2" aria-hidden="true"></i>
+        <span>Transmission successful!</span>
+    </div>
+
+    <div id="errorMessage" class="error-message" role="alert" aria-live="polite">
+        <i class="fas fa-exclamation-triangle mr-2" aria-hidden="true"></i>
+        <span>Transmission failed!</span>
+    </div>
+
+    <!-- Optimized JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // Initialize EmailJS
+        if (window.emailjs) {
+            emailjs.init("UI2-rqg0kiG33cZdh");
+        }
+
+        // FAQ Data
+        const faqData = [
+            {
+                question: "How do I access games from the GameHub matrix?",
+                answer: "Simply interface with the download portal on any game module. Our quantum-encrypted distribution system ensures secure and instantaneous delivery to your neural interface."
+            },
+            {
+                question: "Are all games compatible with my neural processor?",
+                answer: "Our AI compatibility engine automatically optimizes each title for your specific hardware configuration. Premium experiences may require enhanced processing power."
+            },
+            {
+                question: "What are the minimum system requirements for quantum gaming?",
+                answer: "Requirements vary by dimensional complexity. Each game module displays detailed specifications including neural bandwidth and processing core requirements."
+            }
+        ];
+
+        
+        let ticking = false;
+        let preloadedImages = new Map();
+        let loadedCards = new Set();
+
+        // Enhanced Preloading System
+        class ImagePreloader {
+            constructor() {
+                this.cache = new Map();
+                this.loadPromises = new Map();
+            }
+
+            preload(src) {
+                // Return existing promise if already loading
+                if (this.loadPromises.has(src)) {
+                    return this.loadPromises.get(src);
+                }
+
+                // Return cached image if already loaded
+                if (this.cache.has(src)) {
+                    return Promise.resolve(this.cache.get(src));
+                }
+
+                // Create new preload promise
+                const promise = new Promise((resolve, reject) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        this.cache.set(src, img);
+                        resolve(img);
+                    };
+                    img.onerror = () => {
+                        reject(new Error(`Failed to load image: ${src}`));
+                    };
+                    img.src = src;
+                });
+
+                this.loadPromises.set(src, promise);
+                return promise;
+            }
+
+            preloadBatch(urls) {
+                return Promise.allSettled(urls.map(url => this.preload(url)));
+            }
+
+            getFromCache(src) {
+                return this.cache.get(src);
+            }
+        }
+
+        const imagePreloader = new ImagePreloader();
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeApp();
+        });
+
+        async function initializeApp() {
+            try {
+                // Show loading overlay
+                const loadingOverlay = document.getElementById('loadingOverlay');
+                
+                // Preload all images first
+                await preloadAllImages();
+                
+                // Render content
+                await renderSkeletonCards();
+                setTimeout(() => {
+                    renderGames();
+                    renderFAQs();
+                }, 100);
+                
+                // Setup other components
+                setupEventListeners();
+                setupIntersectionObserver();
+                setupScrollEffects();
+                
+                // Hide loading overlay
+                setTimeout(() => {
+                    if (loadingOverlay) {
+                        loadingOverlay.classList.add('hidden');
+                    }
+                }, 300);
+                
+            } catch (error) {
+                console.error('App initialization failed:', error);
+                // Fallback: continue without preloading
+                renderGames();
+                renderFAQs();
+                setupEventListeners();
+                setupIntersectionObserver();
+                setupScrollEffects();
+                
+                const loadingOverlay = document.getElementById('loadingOverlay');
+                if (loadingOverlay) {
+                    loadingOverlay.classList.add('hidden');
+                }
+            }
+        }
+
+        async function preloadAllImages() {
+            const imageUrls = gamesData
+                .filter(game => game.image.startsWith('http') || game.image.startsWith('Images/'))
+                .map(game => game.image);
+            
+            if (imageUrls.length === 0) return;
+            
+            console.log('Preloading images:', imageUrls);
+            const results = await imagePreloader.preloadBatch(imageUrls);
+            
+            results.forEach((result, index) => {
+                if (result.status === 'fulfilled') {
+                    console.log(`✅ Preloaded: ${imageUrls[index]}`);
+                } else {
+                    console.warn(`❌ Failed to preload: ${imageUrls[index]}`, result.reason);
+                }
+            });
+        }
+
+        function setupEventListeners() {
+            // Mobile menu
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    const isShown = mobileMenu.classList.contains('show');
+                    mobileMenu.classList.toggle('show');
+                    mobileMenuBtn.setAttribute('aria-expanded', !isShown);
+                });
+            }
+        
+            // Contact form
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', handleContactForm);
+            }
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        
+                        // Close mobile menu if open
+                        if (mobileMenu) {
+                            mobileMenu.classList.remove('show');
+                            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                        }
+                    }
+                });
+            });
+
+            // Keyboard shortcuts
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    const mobileMenu = document.getElementById('mobileMenu');
+                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+                        if (mobileMenuBtn) {
+                            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                        }
+                    }
+                }
+            });
+
+            // Add keyboard support for interactive elements
+            document.querySelectorAll('[role="button"]').forEach(element => {
+                element.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
+            });
+        }
+
+        function setupIntersectionObserver() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const element = entry.target;
+                        
+                        // Handle other animations
+                        if (!element.classList.contains('animate-fade-in-up')) {
+                            element.classList.add('animate-fade-in-up');
+                        }
+                        
+                        // Unobserve the element after animation
+                        observer.unobserve(element);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements with a delay to prevent initial triggering
+            setTimeout(() => {
+                document.querySelectorAll('.game-card, .about-card').forEach(el => {
+                    observer.observe(el);
+                });
+            }, 100);
+        }
+
+        function setupScrollEffects() {
+            function updateScrollEffects() {
+                if (!ticking) {
+                    requestAnimationFrame(() => {
+                        const scrollY = window.scrollY;
+                        const navbar = document.getElementById('navbar');
+                        
+                        if (navbar) {
+                            if (scrollY > 50) {
+                                navbar.classList.add('scrolled');
+                            } else {
+                                navbar.classList.remove('scrolled');
+                            }
+                        }
+                        
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }
+
+            window.addEventListener('scroll', updateScrollEffects, { passive: true });
+        }
+
+        function renderGames() {
+            const container = document.getElementById('gamesContainer');
+            if (!container) return;
+            
+            container.innerHTML = '';
+            
+            gamesData.forEach((game, index) => {
+                const gameCard = createGameCard(game, index);
+                container.appendChild(gameCard);
+            });
+        }
+
+        function createGameCard(game, index) {
+            const card = document.createElement('div');
+            card.className = 'game-card';
+            card.dataset.cardId = game.id;
+            
+            const tagsHtml = game.tags.map(tag => 
+                `<span class="game-tag">${tag}</span>`
+            ).join('');
+            
+            let imageContent;
+            if (game.image.startsWith('http') || game.image.startsWith('Images/')) {
+                const cachedImg = imagePreloader.getFromCache(game.image);
+                if (cachedImg) {
+                    imageContent = `<img src="${game.image}" alt="${game.title}" class="loaded" loading="lazy">`;
+                } else {
+                    imageContent = `
+                        <div class="image-placeholder" aria-hidden="true">🎮</div>
+                        <img src="${game.image}" alt="${game.title}" class="loading" loading="lazy" 
+                             onload="this.classList.remove('loading'); this.classList.add('loaded'); this.previousElementSibling.classList.add('hidden');"
+                             onerror="this.style.display='none'; this.previousElementSibling.textContent='❌';">
+                    `;
+                }
+            } else {
+                imageContent = `<div class="text-6xl" aria-hidden="true">${game.image}</div>`;
+            }
+            
+            card.innerHTML = `
+                <div class="game-image">
+                    ${imageContent}
+                    <div class="game-type-badge">${game.type.toUpperCase()}</div>
+                </div>
+                <div class="game-content">
+                    <h3 class="game-title">${game.title}</h3>
+                    <p class="game-description">${game.description}</p>
+                    <div class="game-tags">
+                        ${tagsHtml}
+                    </div>
+                    <div class="game-stats">
+                        <div class="stat-group">
+                            <i class="fas fa-star text-yellow-400" aria-hidden="true"></i>
+                            <span class="font-semibold" style="color: var(--text-primary)">${game.rating}</span>
+                        </div>
+                        <div class="stat-group">
+                            <i class="fas fa-users" style="color: var(--text-secondary)" aria-hidden="true"></i>
+                            <span style="color: var(--text-secondary)">${game.players}</span>
+                        </div>
+                        <div class="stat-group">
+                            <i class="fas fa-hdd" style="color: var(--text-secondary)" aria-hidden="true"></i>
+                            <span style="color: var(--text-secondary)">${game.size}</span>
+                        </div>
+                    </div>
+                    <a href="${game.url}" class="download-btn" target="_blank" rel="noopener noreferrer" aria-label="Download ${game.title}">
+                        <i class="fas fa-download mr-2" aria-hidden="true"></i>INITIALIZE DOWNLOAD
+                    </a>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        function renderFAQs() {
+            const container = document.getElementById('faqContainer');
+            if (!container) return;
+            
+            faqData.forEach((faq, index) => {
+                const faqItem = document.createElement('div');
+                faqItem.className = 'faq-item';
+                
+                faqItem.innerHTML = `
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-${index}">
+                        <span>${faq.question}</span>
+                        <i class="faq-icon fas fa-chevron-down" aria-hidden="true"></i>
+                    </div>
+                    <div class="faq-answer" id="faq-answer-${index}" role="region" aria-labelledby="faq-question-${index}">
+                        <p>${faq.answer}</p>
+                    </div>
+                `;
+                
+                const questionElement = faqItem.querySelector('.faq-question');
+                questionElement.addEventListener('click', () => toggleFAQ(faqItem, questionElement));
+                questionElement.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        toggleFAQ(faqItem, questionElement);
+                    }
+                });
+                
+                container.appendChild(faqItem);
+            });
+        }
+
+        function toggleFAQ(faqItem, questionElement) {
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all FAQs
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+                const question = item.querySelector('.faq-question');
+                if (question) {
+                    question.setAttribute('aria-expanded', 'false');
+                }
+            });
+            
+            // Open clicked FAQ if it wasn't active
+            if (!isActive) {
+                faqItem.classList.add('active');
+                questionElement.setAttribute('aria-expanded', 'true');
+            }
+        }
+
+        function handleContactForm(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('userName')?.value;
+            const email = document.getElementById('userEmail')?.value;
+            const subject = document.getElementById('userSubject')?.value;
+            const message = document.getElementById('userMessage')?.value;
+            
+            if (!name || !email || !subject || !message) {
+                showErrorMessage('Please fill in all required fields.');
+                return;
+            }
+            
+            // Show loading state
+            const submitBtn = event.target.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2" aria-hidden="true"></i>TRANSMITTING...';
+            submitBtn.disabled = true;
+            
+            // EmailJS submission
+            const templateParams = {
+                from_name: name,
+                from_email: email,
+                subject: subject,
+                message: message,
+                to_email: 'maminaziz.2005@gmail.com'
+            };
+            
+            if (window.emailjs) {
+                emailjs.send('service_jyak4ue', 'template_z6icffq', templateParams)
+                    .then(function(response) {
+                        console.log('Email sent successfully:', response.status, response.text);
+                        showSuccessMessage('Data transmission successful! Neural link established.');
+                        document.getElementById('contactForm').reset();
+                    }, function(error) {
+                        console.error('Email send failed:', error);
+                        showErrorMessage('Transmission failed! Please recalibrate neural interface.');
+                    })
+                    .finally(() => {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                    });
+            } else {
+                // Fallback
+                setTimeout(() => {
+                    showSuccessMessage('Data transmission successful! Neural link established.');
+                    document.getElementById('contactForm').reset();
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }, 1000);
+            }
+        }
+
+        function openSocialLink(platform) {
+            const links = {
+                whatsapp: 'https://wa.me/923285512474',
+                telegram: 'https://t.me/YOUR_TELEGRAM_USERNAME',
+                facebook: 'https://facebook.com/YOUR_FACEBOOK_PAGE',
+                discord: 'https://discord.gg/YOUR_DISCORD_SERVER'
+            };
+            
+            if (links[platform]) {
+                window.open(links[platform], '_blank', 'noopener,noreferrer');
+                showSuccessMessage(`Connecting to ${platform.charAt(0).toUpperCase() + platform.slice(1)} neural channel...`);
+            }
+        }
+
+        function showSuccessMessage(message) {
+            const messageEl = document.getElementById('successMessage');
+            if (messageEl) {
+                const span = messageEl.querySelector('span');
+                if (span) {
+                    span.textContent = message;
+                }
+                messageEl.classList.add('show');
+                
+                setTimeout(() => {
+                    messageEl.classList.remove('show');
+                }, 4000);
+            }
+        }
+
+        function showErrorMessage(message) {
+            const messageEl = document.getElementById('errorMessage');
+            if (messageEl) {
+                const span = messageEl.querySelector('span');
+                if (span) {
+                    span.textContent = message;
+                }
+                messageEl.classList.add('show');
+                
+                setTimeout(() => {
+                    messageEl.classList.remove('show');
+                }, 4000);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GameHub Blog - Latest Gaming Insights, Technologies, and Industry News">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0a0a0f">
+    <title>GameHub Blog - Gaming Insights & Industry News</title>
+
+    <!-- Optimized Font Loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Exo+2:wght@300;400;500;600;700;800;900&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-glow: #667eea;
+            --secondary-glow: #764ba2;
+            --accent-glow: #f093fb;
+            --success-glow: #4facfe;
+            --warning-glow: #f6d365;
+            --danger-glow: #ff6b6b;
+            --neon-blue: #00f5ff;
+            --neon-pink: #ff006e;
+            --neon-green: #39ff14;
+            --neon-purple: #bf00ff;
+            --cyber-orange: #ff9500;
+            --quantum-gold: #ffd700;
+            --matrix-red: #ff0040;
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #1a1a2e;
+            --bg-card: #16213e;
+            --bg-glass: rgba(0, 0, 0, 0.3);
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --border-color: #475569;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            --glow-primary: rgba(102, 126, 234, 0.5);
+            --glow-secondary: rgba(118, 75, 162, 0.5);
+        }
+
+        body {
+            font-family: 'Rajdhani', 'Arial', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .orbitron {
+            font-family: 'Orbitron', 'Courier New', monospace;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: background-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .navbar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink), var(--neon-green), var(--neon-purple));
+            background-size: 400% 100%;
+            animation: rainbow-flow 3s linear infinite;
+        }
+
+        @keyframes rainbow-flow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 10, 15, 0.98);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 1rem;
+        }
+
+        .gaming-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .gaming-logo::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(45deg, var(--primary-glow), var(--secondary-glow), var(--accent-glow));
+            border-radius: 12px;
+            opacity: 0;
+            filter: blur(10px);
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .gaming-logo:hover::before {
+            opacity: 0.7;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: #cbd5e1;
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary-glow), var(--secondary-glow));
+            border-radius: 8px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::before {
+            opacity: 0.2;
+        }
+
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+            color: #fff;
+        }
+
+        .nav-link.active {
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
+            color: white;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: rgba(0, 245, 255, 0.1);
+            border: 1px solid rgba(0, 245, 255, 0.3);
+            color: var(--neon-blue);
+            padding: 0.75rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-btn:hover {
+            background: rgba(0, 245, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .mobile-menu {
+            display: none;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            backdrop-filter: blur(20px);
+        }
+
+        .mobile-menu.show {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 16px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .mobile-menu a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 0;
+            background: var(--neon-blue);
+            transition: width 0.3s ease;
+        }
+
+        .mobile-menu a:hover::before {
+            width: 4px;
+        }
+
+        .mobile-menu a:hover {
+            background: var(--bg-glass);
+            transform: translateX(10px);
+            color: var(--neon-blue);
+        }
+
+        /* Holographic Effect */
+        .holographic {
+            background: linear-gradient(45deg, 
+                var(--neon-blue) 0%, 
+                var(--neon-pink) 25%, 
+                var(--neon-green) 50%, 
+                var(--neon-purple) 75%, 
+                var(--neon-blue) 100%);
+            background-size: 400% 400%;
+            animation: holographic-shift 3s ease infinite;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @keyframes holographic-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Main Container */
+        .main-container {
+            margin-top: 20px;
+            min-height: calc(100vh - 80px);
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.2) 0%, transparent 50%),
+                linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+        }
+
+        /* Blog Header */
+        .blog-header {
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+            position: relative;
+        }
+
+        .blog-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            background: holographic,(135deg, #667eea, #764ba2, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .blog-subtitle {
+            font-size: clamp(1rem, 2vw, 1rem);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto -2.2rem;
+            line-height: 1.7;
+        }
+
+        /* Blog Grid */
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Blog Cards */
+        .blog-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            height: fit-content;
+        }
+
+        .blog-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: black;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.3s ease;
+            border-radius: 18px;
+            transition: 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translate(5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .blog-card:hover::before {
+            opacity: 1;
+        }
+
+        .category-badge {
+            display: inline-block;
+            background: rgba(0, 245, 255, 0.2);
+            color: var(--neon-blue);
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(0, 245, 255, 0.3);
+        }
+
+        .blog-card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .blog-card-excerpt {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .blog-card-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.25rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .blog-date {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .blog-author {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .read-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .read-more-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .read-more-btn:hover::before {
+            left: 100%;
+        }
+
+        .read-more-btn:hover {
+            background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 245, 255, 0.4);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .animate-delay-1 { animation-delay: 0.1s; }
+        .animate-delay-2 { animation-delay: 0.2s; }
+        .animate-delay-3 { animation-delay: 0.3s; }
+        .animate-delay-4 { animation-delay: 0.4s; }
+        .animate-delay-5 { animation-delay: 0.5s; }
+        .animate-delay-6 { animation-delay: 0.6s; }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--neon-blue);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .blog-header {
+                padding: 3rem 1rem 1rem;
+            }
+
+            .blog-container {
+                padding: 0 1rem 3rem;
+            }
+
+            .blog-card {
+                padding: 1.25rem;
+            }
+
+            .blog-card-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .blog-card {
+                padding: 1rem;
+            }
+
+            .read-more-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Selection */
+        ::selection {
+            background: var(--neon-blue);
+            color: white;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="gaming-logo">
+                <i class="fa-solid fa-blog fa-beat"></i>
+                <span class="orbitron holographic" style="font-size: 1.25rem; font-weight: 700;">GameHub</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="index.html" class="nav-link"><i class="fa-solid fa-house-user"></i> Home</a>
+                <a href="games.html" class="nav-link holographic"><i class="fa fa-gamepad"></i> Games</a>
+                <a href="blogs.html" class="nav-link active"><i class="fa fa-blog"></i> Blogs</a>
+                <a href="index.html#about" class="nav-link"><i class="fa fa-address-card"></i> About</a>
+                <a href="index.html#contact" class="nav-link"><i class="fa fa-headset"></i> Contact Us</a>
+            </div>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html">Home</a>
+            <a href="games.html" class="holographic">Games</a>
+            <a href="blog.html" class="holographic"><i class="fa fa-blog"></i> Blogs</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact Us</a>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="main-container">
+        <!-- Blog Header -->
+        <header class="blog-header">
+            <h1 class="blog-title orbitron holographic"><i class="fa fa-blog holographic"></i> Our Latest Blogs</h1>
+            <p class="blog-subtitle">
+                Discover insights from the gaming multiverse, cutting-edge technologies, 
+                and the future of interactive entertainment.
+            </p>
+        </header>
+
+        <!-- Blog Container -->
+        <div class="blog-container">
+            <div class="blog-grid">
+                <!-- Blog Card 1 -->
+                <article class="blog-card animate-fade-in-up animate-delay-1">
+                    <span class="category-badge">Technology</span>
+                    <h2 class="blog-card-title">The Future of Gaming AI</h2>
+                    <p class="blog-card-excerpt">
+                        Exploring how artificial intelligence is revolutionizing game development and creating immersive player experiences, from procedural generation to adaptive gameplay mechanics.
+
+                    </p>
+                    <div class="blog-card-meta">
+                        <div class="blog-date">
+                            <i class="fas fa-calendar-alt holographic"></i>
+                            <span>January 15, 2025</span>
+                        </div>
+                        <div class="blog-author">
+                            <i class="fas fa-user holographic"></i>
+                            <span>Alex Chen</span>
+                        </div>
+                    </div>
+                    <a href="blogs-view.html" class="read-more-btn">
+                        <span>Read More</span>
+                        <i class="fas fa-arrow-right holographic"></i>
+                    </a>
+                </article>
+
+                <!-- Blog Card 2 -->
+                <article class="blog-card animate-fade-in-up animate-delay-2">
+                    <span class="category-badge">Graphics</span>
+                    <h2 class="blog-card-title">Quantum Graphics Revolution</h2>
+                    <p class="blog-card-excerpt">
+                        Discover the breakthrough in quantum-enhanced graphics rendering that's changing the visual landscape of gaming. Real-time ray tracing meets quantum computing.
+                    </p>
+                    <div class="blog-card-meta">
+                        <div class="blog-date">
+                            <i class="fas fa-calendar-alt holographic"></i>
+                            <span>January 12, 2025</span>
+                        </div>
+                        <div class="blog-author">
+                            <i class="fas fa-user holographic"></i>
+                            <span>Sarah Kim</span>
+                        </div>
+                    </div>
+                    <a href="blogs-view1.html" class="read-more-btn">
+                        <span>Read More</span>
+                        <i class="fas fa-arrow-right holographic"></i>
+                    </a>
+                </article>
+
+                <!-- Blog Card 3 -->
+                <article class="blog-card animate-fade-in-up animate-delay-3">
+                    <span class="category-badge">Innovation</span>
+                    <h2 class="blog-card-title">Neural Interface Gaming</h2>
+                    <p class="blog-card-excerpt">
+                        How brain-computer interfaces are opening new dimensions in player control and immersive gameplay mechanics. The next evolution of gaming input.
+                    </p>
+                    <div class="blog-card-meta">
+                        <div class="blog-date">
+                            <i class="fas fa-calendar-alt holographic"></i>
+                            <span>January 10, 2025</span>
+                        </div>
+                        <div class="blog-author">
+                            <i class="fas fa-user holographic"></i>
+                            <span>Marcus Rivera</span>
+                        </div>
+                    </div>
+                    <a href="#" class="read-more-btn">
+                        <span>Read More</span>
+                        <i class="fas fa-arrow-right holographic"></i>
+                    </a>
+                </article>
+
+                <!-- Blog Card 4 -->
+                <article class="blog-card animate-fade-in-up animate-delay-4">
+                    <span class="category-badge">Metaverse</span>
+                    <h2 class="blog-card-title">Metaverse Gaming Ecosystems</h2>
+                    <p class="blog-card-excerpt">
+                        Building interconnected virtual worlds where players can seamlessly transition between different gaming universes. The future of persistent digital spaces.
+                    </p>
+                    <div class="blog-card-meta">
+                        <div class="blog-date">
+                            <i class="fas fa-calendar-alt holographic"></i>
+                            <span>January 8, 2025</span>
+                        </div>
+                        <div class="blog-author">
+                            <i class="fas fa-user holographic"></i>
+                            <span>Luna Park</span>
+                        </div>
+                    </div>
+                    <a href="#" class="read-more-btn">
+                        <span>Read More</span>
+                        <i class="fas fa-arrow-right holographic"></i>
+                    </a>
+                </article>
+
+                <!-- Blog Card 5 -->
+                <article class="blog-card animate-fade-in-up animate-delay-5">
+                    <span class="category-badge">Security</span>
+                    <h2 class="blog-card-title">Cybersecurity in Gaming</h2>
+                    <p class="blog-card-excerpt">
+                        Protecting player data and ensuring secure gaming environments in an increasingly connected digital world. Advanced encryption and anti-cheat systems.
+                    </p>
+                    <div class="blog-card-meta">
+                        <div class="blog-date">
+                            <i class="fas fa-calendar-alt holographic"></i>
+                            <span>January 5, 2025</span>
+                        </div>
+                        <div class="blog-author">
+                            <i class="fas fa-user holographic"></i>
+                            <span>David Torres</span>
+                        </div>
+                    </div>
+                    <a href="#" class="read-more-btn">
+                        <span>Read More</span>
+                        <i class="fas fa-arrow-right holographic"></i>
+                    </a>
+                </article>
+
+                <!-- Blog Card 6 -->
+                <article class="blog-card animate-fade-in-up animate-delay-6">
+                    <span class="category-badge">Sustainability</span>
+                    <h2 class="blog-card-title">Sustainable Gaming Tech</h2>
+                    <p class="blog-card-excerpt">
+                        Environmental innovations in gaming hardware and software development for a greener digital future. Energy-efficient processing and eco-friendly practices.
+                    </p>
+                    <div class="blog-card-meta">
+                        <div class="blog-date">
+                            <i class="fas fa-calendar-alt holographic"></i>
+                            <span>January 3, 2025</span>
+                        </div>
+                        <div class="blog-author">
+                            <i class="fas fa-user holographic"></i>
+                            <span>Emma Watson</span>
+                        </div>
+                    </div>
+                    <a href="#" class="read-more-btn">
+                        <span>Read More</span>
+                        <i class="fas fa-arrow-right holographic"></i>
+                    </a>
+                </article>    
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="games.html">Try Games...</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+            <p style="color: var(--text-secondary);" class="holographic">
+                © 2025 GameHub Neural Network. All rights reserved. Powered by quantum computing.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('show');
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.remove('show');
+            }
+        });
+
+        // Add loading animation on page load
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+        });
+    </script>
+</body>
+</html>

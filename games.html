@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GameHub Games - Premium Digital Gaming Collection">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0a0a0f">
+    <title>GameHub Games - Premium Digital Collection</title>
+
+    <!-- Optimized Font Loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Exo+2:wght@300;400;500;600;700;800;900&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-glow: #667eea;
+            --secondary-glow: #764ba2;
+            --accent-glow: #f093fb;
+            --success-glow: #4facfe;
+            --warning-glow: #f6d365;
+            --danger-glow: #ff6b6b;
+            --neon-blue: #00f5ff;
+            --neon-pink: #ff006e;
+            --neon-green: #39ff14;
+            --neon-purple: #bf00ff;
+            --cyber-orange: #ff9500;
+            --quantum-gold: #ffd700;
+            --matrix-red: #ff0040;
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #1a1a2e;
+            --bg-card: #16213e;
+            --bg-glass: rgba(0, 0, 0, 0.3);
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --border-color: #475569;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            --glow-primary: rgba(102, 126, 234, 0.5);
+            --glow-secondary: rgba(118, 75, 162, 0.5);
+        }
+
+        body {
+            font-family: 'Rajdhani', 'Arial', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .orbitron {
+            font-family: 'Orbitron', 'Courier New', monospace;
+        }
+
+        .exo {
+            font-family: 'Exo 2', 'Arial', sans-serif;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid rgba(102, 126, 234, 0.2);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: background-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .navbar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink), var(--neon-green), var(--neon-purple));
+            background-size: 400% 100%;
+            animation: rainbow-flow 3s linear infinite;
+        }
+
+        @keyframes rainbow-flow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 10, 15, 0.98);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 1rem;
+        }
+
+        .gaming-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .gaming-logo::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(45deg, var(--primary-glow), var(--secondary-glow), var(--accent-glow));
+            border-radius: 12px;
+            opacity: 0;
+            filter: blur(10px);
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .gaming-logo:hover::before {
+            opacity: 0.7;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: #cbd5e1;
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary-glow), var(--secondary-glow));
+            border-radius: 8px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::before {
+            opacity: 0.2;
+        }
+
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+            color: #fff;
+        }
+
+        .nav-link.active {
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
+            color: white;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: rgba(0, 245, 255, 0.1);
+            border: 1px solid rgba(0, 245, 255, 0.3);
+            color: var(--neon-blue);
+            padding: 0.75rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-btn:hover {
+            background: rgba(0, 245, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .mobile-menu {
+            display: none;
+            background: var(--bg-secondary);
+            border: 10px solid rgba(0, 0, 0, 0.7);
+            border-top: 1px solid var(--border-color);
+            backdrop-filter: blur(20px);
+        }
+
+        .mobile-menu.show {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 16px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .mobile-menu a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 0;
+            background: var(--neon-blue);
+            transition: width 0.3s ease;
+        }
+
+        .mobile-menu a:hover::before {
+            width: 4px;
+        }
+
+        .mobile-menu a:hover {
+            background: var(--bg-glass);
+            transform: translateX(10px);
+            color: var(--neon-blue);
+        }
+
+        /* Holographic Effect */
+        .holographic {
+            background: linear-gradient(45deg, 
+                var(--neon-blue) 0%, 
+                var(--neon-pink) 25%, 
+                var(--neon-green) 50%, 
+                var(--neon-purple) 75%, 
+                var(--neon-blue) 100%);
+            background-size: 400% 400%;
+            animation: holographic-shift 3s ease infinite;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @keyframes holographic-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Main Container */
+        .main-container {
+            margin-top: 65px;
+            min-height: calc(100vh - 80px);
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 50%),
+                linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+            padding: 2rem 0;
+        }
+
+        /* Games Section */
+        .games-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            font-family: 'Orbitron', monospace;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section-description {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Games Grid */
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Game Card */
+        .game-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .game-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: black;
+            opacity: 0;
+            z-index: -1;
+            border-radius: 22px;
+            transition: opacity 0.3s ease;
+        }
+
+        .game-card:hover::before {
+            opacity: 0.3;
+        }
+
+        .game-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(14, 20, 20, 0.2);
+        }
+
+        .game-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 0;
+            background-color: #000;
+        }
+
+        .game-content {
+            padding: 1.5rem;
+        }
+
+        .game-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            font-family: 'Orbitron', monospace;
+        }
+
+        .game-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .game-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            gap: 1rem;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .stat-icon {
+            color: var(--neon-blue);
+        }
+
+        .download-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(71, 85, 105, 0.3);
+        }
+
+        .game-size {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .download-btn:hover {
+            background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 245, 255, 0.4);
+        }
+
+        .download-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 0.6s ease-out both;
+        }
+
+        .animate-delay-1 { animation-delay: 0.1s; }
+        .animate-delay-2 { animation-delay: 0.2s; }
+        .animate-delay-3 { animation-delay: 0.3s; }
+        .animate-delay-4 { animation-delay: 0.4s; }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--neon-blue);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .games-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                padding: 1rem 0;
+            }
+
+            .games-section {
+                padding: 0 0.5rem;
+            }
+
+            .games-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .game-card {
+                margin: 0 auto;
+                max-width: 400px;
+            }
+
+            .game-stats {
+                flex-direction: row;
+                gap: 0.75rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .games-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .game-content {
+                padding: 1rem;
+            }
+
+            .download-section {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: stretch;
+            }
+
+            .download-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* Selection */
+        ::selection {
+            background: var(--neon-blue);
+            color: white;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="gaming-logo">
+                <i class="logo-icon fa fa-gamepad"></i>
+                <span class="orbitron holographic" style="font-size: 1.25rem; font-weight: 700;">GameHub</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="index.html" class="nav-link"><i class="fa-solid fa-house-user"></i> Home</a>
+                <a href="games.html" class="nav-link active"><i class="fa fa-gamepad"></i> Games</a>
+                <a href="blogs.html" class="nav-link"><i class="fa fa-blog"></i> Blogs</a>
+                <a href="index.html#about" class="nav-link"><i class="fa fa-address-card"></i> About</a>
+                <a href="index.html#contact" class="nav-link"><i class="fa fa-headset"></i> Contact Us</a>
+            </div>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html">Home</a>
+            <a href="games.html" class="holographic active"><i class="fa fa-gamepad"></i> Games</a>
+            <a href="blogs.html">Blogs</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#contact">Contact Us</a>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="main-container">
+        <section class="games-section">
+            <!-- Section Header -->
+            <div class="section-header animate-fade-in">
+                <h1 class="section-title holographic">FEATURED GAMES</h1>
+                <p class="section-description">
+                    Handpicked digital masterpieces from the gaming multiverse. Experience premium entertainment curated by our quantum-enhanced selection algorithms.
+                </p>
+            </div>
+
+            <!-- Games Grid -->
+            <div class="games-grid" id="gamesGrid">
+                <!-- Game Card 1 -->
+                <div class="game-card animate-fade-in" style="animation-delay: 0.1s">
+                    <img src="Images/Index/g1.jpeg" alt="Cyberpunk Nexus" class="game-image" loading="lazy">
+                    <div class="game-content">
+                        <h3 class="game-title">GTA Vice City</h3>
+                        <p class="game-description">Experience the future in this immersive cyberpunk RPG with cutting-edge graphics, neural implants, and quantum decision trees.</p>
+                        <div class="game-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-download stat-icon"></i>
+                                <span>2.3M</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-star stat-icon"></i>
+                                <span>4.8</span>
+                            </div>
+                        </div>
+                        <div class="download-section">
+                            <span class="game-size">45.2 GB</span>
+                            <a href="gtavc.html" class="download-btn">
+                                <i class="fas fa-download"></i> Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 2 -->
+                <div class="game-card animate-fade-in" style="animation-delay: 0.2s">
+                    <img src="Images/Index/g2.jpeg" alt="Quantum Warriors" class="game-image" loading="lazy">
+                    <div class="game-content">
+                        <h3 class="game-title">Call Of Duty</h3>
+                        <p class="game-description">Battle across multiple dimensions in this action-packed fighter featuring quantum physics-based combat mechanics.</p>
+                        <div class="game-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-download stat-icon"></i>
+                                <span>1.8M</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-star stat-icon"></i>
+                                <span>4.7</span>
+                            </div>
+                        </div>
+                        <div class="download-section">
+                            <span class="game-size">32.1 GB</span>
+                            <a href="call-of-duty.html" class="download-btn">
+                                <i class="fas fa-download"></i> Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 3 -->
+                <div class="game-card animate-fade-in" style="animation-delay: 0.3s">
+                    <img src="Images/GTA Vice City/p7.jpeg" alt="Neural Odyssey" class="game-image" loading="lazy">
+                    <div class="game-content">
+                        <h3 class="game-title">Spotify Premium Mod</h3>
+                        <p class="game-description">Explore the depths of consciousness in this mind-bending adventure that adapts to your neural patterns and thoughts.</p>
+                        <div class="game-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-download stat-icon"></i>
+                                <span>3.1M</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-star stat-icon"></i>
+                                <span>4.9</span>
+                            </div>
+                        </div>
+                        <div class="download-section">
+                            <span class="game-size">38.7 GB</span>
+                            <a href="spotify.html" class="download-btn">
+                                <i class="fas fa-download"></i> Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card animate-fade-in" style="animation-delay: 0.3s">
+                    <img src="Images/GTA Vice City/p7.jpeg" alt="Neural Odyssey" class="game-image" loading="lazy">
+                    <div class="game-content">
+                        <h3 class="game-title">Capcut Desktop</h3>
+                        <p class="game-description">Explore the depths of consciousness in this mind-bending adventure that adapts to your neural patterns and thoughts.</p>
+                        <div class="game-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-download stat-icon"></i>
+                                <span>3.1M</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-star stat-icon"></i>
+                                <span>4.9</span>
+                            </div>
+                        </div>
+                        <div class="download-section">
+                            <span class="game-size">38.7 GB</span>
+                            <a href="capcutDesktop.html" class="download-btn">
+                                <i class="fas fa-download"></i> Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 4 -->
+                <div class="game-card animate-fade-in" style="animation-delay: 0.3s">
+                    <img src="Images/GTA Vice City/p7.jpeg" alt="Neural Odyssey" class="game-image" loading="lazy">
+                    <div class="game-content">
+                        <h3 class="game-title">EA Sports FC 25</h3>
+                        <p class="game-description">Explore the depths of consciousness in this mind-bending adventure that adapts to your neural patterns and thoughts.</p>
+                        <div class="game-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-download stat-icon"></i>
+                                <span>3.1M</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-star stat-icon"></i>
+                                <span>4.9</span>
+                            </div>
+                        </div>
+                        <div class="download-section">
+                            <span class="game-size">38.7 GB</span>
+                            <a href="EASports.html" class="download-btn">
+                                <i class="fas fa-download"></i> Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Game Card 5 -->
+                <div class="game-card animate-fade-in" style="animation-delay: 0.3s">
+                    <img src="Images/GTA Vice City/p7.jpeg" alt="Neural Odyssey" class="game-image" loading="lazy">
+                    <div class="game-content">
+                        <h3 class="game-title">Capcut Premium Mod</h3>
+                        <p class="game-description">Explore the depths of consciousness in this mind-bending adventure that adapts to your neural patterns and thoughts.</p>
+                        <div class="game-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-download stat-icon"></i>
+                                <span>3.1M</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-star stat-icon"></i>
+                                <span>4.9</span>
+                            </div>
+                        </div>
+                        <div class="download-section">
+                            <span class="game-size">38.7 GB</span>
+                            <a href="capcut.html" class="download-btn">
+                                <i class="fas fa-download"></i> Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Game Card 5 -->
+                <div class="game-card animate-fade-in" style="animation-delay: 0.3s">
+                    <img src="Images/GTA Vice City/p7.jpeg" alt="Neural Odyssey" class="game-image" loading="lazy">
+                    <div class="game-content">
+                        <h3 class="game-title">ChatGPT 5</h3>
+                        <p class="game-description">Explore the depths of consciousness in this mind-bending adventure that adapts to your neural patterns and thoughts.</p>
+                        <div class="game-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-download stat-icon"></i>
+                                <span>3.1M</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-star stat-icon"></i>
+                                <span>4.9</span>
+                            </div>
+                        </div>
+                        <div class="download-section">
+                            <span class="game-size">38.7 GB</span>
+                            <a href="chatgpt.html" class="download-btn">
+                                <i class="fas fa-download"></i> Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Game Card 5 -->
+                <div class="game-card animate-fade-in" style="animation-delay: 0.3s">
+                    <img src="Images/GTA Vice City/p7.jpeg" alt="Neural Odyssey" class="game-image" loading="lazy">
+                    <div class="game-content">
+                        <h3 class="game-title">Grammarly</h3>
+                        <p class="game-description">Explore the depths of consciousness in this mind-bending adventure that adapts to your neural patterns and thoughts.</p>
+                        <div class="game-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-download stat-icon"></i>
+                                <span>3.1M</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-star stat-icon"></i>
+                                <span>4.9</span>
+                            </div>
+                        </div>
+                        <div class="download-section">
+                            <span class="game-size">38.7 GB</span>
+                            <a href="grammerly.html" class="download-btn">
+                                <i class="fas fa-download"></i> Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Game Card 5 -->
+                <div class="game-card animate-fade-in" style="animation-delay: 0.3s">
+                    <img src="Images/GTA Vice City/p7.jpeg" alt="Neural Odyssey" class="game-image" loading="lazy">
+                    <div class="game-content">
+                        <h3 class="game-title">Canva</h3>
+                        <p class="game-description">Explore the depths of consciousness in this mind-bending adventure that adapts to your neural patterns and thoughts.</p>
+                        <div class="game-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-download stat-icon"></i>
+                                <span>3.1M</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-star stat-icon"></i>
+                                <span>4.9</span>
+                            </div>
+                        </div>
+                        <div class="download-section">
+                            <span class="game-size">38.7 GB</span>
+                            <a href="canva.html" class="download-btn">
+                                <i class="fas fa-download"></i> Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="games.html">Games</a>
+                <a href="blogs.html">Blogs</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+            <p style="color: var(--text-secondary);" class="holographic">
+                © 2025 GameHub Neural Network. All rights reserved. Powered by quantum computing.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize the games page
+        document.addEventListener('DOMContentLoaded', function() {
+            setupEventListeners();
+            setupScrollEffects();
+        });
+
+        function setupEventListeners() {
+            // Mobile menu
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('show');
+                });
+            }
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (mobileMenuBtn && mobileMenu && 
+                    !mobileMenuBtn.contains(e.target) && 
+                    !mobileMenu.contains(e.target)) {
+                    mobileMenu.classList.remove('show');
+                }
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    if (mobileMenu && mobileMenu.classList.contains('show')) {
+                        mobileMenu.classList.remove('show');
+                    }
+                }
+            });
+
+            // Game card hover effects
+            document.addEventListener('mouseover', function(e) {
+                const gameCard = e.target.closest('.game-card');
+                if (gameCard) {
+                    gameCard.style.transform = 'translateY(-8px) scale(1.02)';
+                }
+            });
+
+            document.addEventListener('mouseout', function(e) {
+                const gameCard = e.target.closest('.game-card');
+                if (gameCard) {
+                    gameCard.style.transform = '';
+                }
+            });
+        }
+
+        function setupScrollEffects() {
+            let ticking = false;
+            
+            function updateScrollEffects() {
+                if (!ticking) {
+                    requestAnimationFrame(() => {
+                        const scrollY = window.scrollY;
+                        const navbar = document.getElementById('navbar');
+                        
+                        if (navbar) {
+                            if (scrollY > 50) {
+                                navbar.classList.add('scrolled');
+                            } else {
+                                navbar.classList.remove('scrolled');
+                            }
+                        }
+                        
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }
+
+            window.addEventListener('scroll', updateScrollEffects, { passive: true });
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

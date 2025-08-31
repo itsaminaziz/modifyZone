@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EA Sports FC 25 Mod APK</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap">
+    <style>
+        :root {
+            --ea-blue: #0066CC;
+            --ea-dark-blue: #004499;
+            --ea-light-blue: #3388DD;
+            --ea-orange: #FF6600;
+            --ea-red: #CC0000;
+            --ea-black: #1a1a1a;
+            --ea-dark-gray: #0f0f0f;
+            --ea-gray: #2a2a2a;
+            --ea-light-gray: #b3b3b3;
+            --ea-white: #ffffff;
+            --bg-primary: #1a1a1a;
+            --bg-secondary: #0f0f0f;
+            --bg-card: #2a2a2a;
+            --bg-glass: rgba(26, 26, 26, 0.9);
+            --text-primary: #ffffff;
+            --text-secondary: #b3b3b3;
+            --border-color: #404040;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.6);
+            --glow-primary: rgba(0, 102, 204, 0.6);
+            --glow-secondary: rgba(51, 136, 221, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Arial', sans-serif;
+            font-display: swap;
+            transition: none;
+            overflow-x: hidden;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .roboto {
+            font-family: 'Roboto', 'Arial', sans-serif;
+            font-display: swap;
+        }
+
+        .montserrat {
+            font-family: 'Montserrat', 'Arial', sans-serif;
+            font-display: swap;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 0.5rem 2rem;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid var(--ea-blue);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--ea-blue);
+            text-shadow: 0 0 10px var(--glow-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--ea-blue);
+            text-shadow: 0 0 5px var(--glow-primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--ea-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-primary);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), 
+                        url('https://images.pexels.com/photos/114296/pexels-photo-114296.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            color: var(--text-primary);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, var(--ea-blue), var(--ea-light-blue));
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: var(--shadow);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px var(--glow-primary);
+        }
+
+        /* App Overview Section */
+        .app-overview {
+            padding: 4rem 2rem;
+            background: var(--bg-secondary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--ea-blue);
+            text-shadow: 0 0 10px var(--glow-primary);
+        }
+
+        .read{
+            text-decoration: none;
+            color: var(--ea-white);
+        }
+
+        .read:hover{
+            color: var(--ea-blue);
+        }
+
+        .overview-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .overview-image {
+            width: 100%;
+            height: 400px;
+            background: url('https://images.pexels.com/photos/399187/pexels-photo-399187.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') center/cover;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border: 2px solid var(--border-color);
+        }
+
+        .overview-text {
+            background-color: rgba(0, 102, 204, 0.15);
+            border-radius: 20px;
+            border: 2px dashed rgba(0, 102, 204, 0.3);
+            padding: 1.4rem;
+        }
+
+        .overview-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--ea-blue);
+        }
+
+        .overview-text p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        /* Screenshots Section */
+        .screenshots {
+            padding: 4rem 2rem;
+            background: var(--bg-primary);
+        }
+
+        .screenshot-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .screenshot-viewer {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .screenshot-track {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+
+        .screenshot {
+            min-width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            border-radius: 20px;
+        }
+
+        .screenshot:nth-child(1) {
+            background-image: url('https://images.pexels.com/photos/114296/pexels-photo-114296.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+        }
+
+        .screenshot:nth-child(2) {
+            background-image: url('https://images.pexels.com/photos/399187/pexels-photo-399187.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+        }
+
+        .screenshot:nth-child(3) {
+            background-image: url('https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+        }
+
+        .screenshot:nth-child(4) {
+            background-image: url('https://images.pexels.com/photos/274506/pexels-photo-274506.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+        }
+
+        .screenshot:nth-child(5) {
+            background-image: url('https://images.pexels.com/photos/358042/pexels-photo-358042.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+        }
+
+        .screenshot-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--bg-glass);
+            border: none;
+            color: var(--text-primary);
+            font-size: 2rem;
+            padding: 1rem;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .screenshot-nav:hover {
+            background: var(--ea-blue);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .prev {
+            left: 20px;
+        }
+
+        .next {
+            right: 20px;
+        }
+
+        .screenshot-dots {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .dot {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--border-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: var(--ea-blue);
+            box-shadow: 0 0 10px var(--glow-primary);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 2rem;
+            background: var(--bg-secondary);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px var(--glow-secondary);
+            border-color: var(--ea-blue);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--ea-blue);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+        }
+
+        /* Premium Benefits Section */
+        .benefits {
+            padding: 4rem 2rem;
+            background: var(--bg-primary);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .benefit-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 30px var(--glow-secondary);
+        }
+
+        .benefit-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--ea-blue), var(--ea-light-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--ea-white);
+        }
+
+        .benefit-info {
+            padding: 1.5rem;
+        }
+
+        .benefit-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--ea-blue);
+        }
+
+        .benefit-info p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* System Requirements */
+        .requirements {
+            padding: 4rem 2rem;
+            background: var(--bg-secondary);
+        }
+
+        .requirements-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .req-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        .req-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--ea-blue);
+            text-align: center;
+        }
+
+        .req-list {
+            list-style: none;
+        }
+
+        .req-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        .req-list li:last-child {
+            border-bottom: none;
+        }
+
+        .req-list strong {
+            color: var(--text-primary);
+        }
+
+        /* Download Section */
+        .download {
+            padding: 4rem 2rem;
+            background: var(--bg-primary);
+            text-align: center;
+        }
+
+        #dwld {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+        }
+
+        #dn{
+            margin-bottom: 0;
+        }
+
+        .download-left {
+            width: 600px;
+            height: 337.5px;
+            margin: 0 auto;
+            background-color: rgba(0, 102, 204, 0.15);
+            border-radius: 20px;
+            border: 2px dashed rgba(0, 102, 204, 0.3);
+            transition: 0.2s;
+            overflow: hidden;
+            padding: 0;
+            flex-shrink: 0;
+        }
+
+        .download-left:hover {
+            background-color: rgba(0, 102, 204, 0.25);
+            transform: scale(1.009);
+            border: 2px dashed rgba(0, 102, 204, 0.5);
+        }
+
+        .download-content {
+            max-width: 500px;
+            background-color: rgba(0, 102, 204, 0.15);
+            border-radius: 20px;
+            border: 2px dashed rgba(0, 102, 204, 0.3);
+            transition: 0.2s;
+            padding: 2rem;
+            flex: 1;
+        }
+
+        .download-content:hover {
+            background-color: rgba(0, 102, 204, 0.25);
+            transform: scale(1.009);
+            border: 2px dashed rgba(0, 102, 204, 0.5);
+        }
+
+        .download-button {
+            background: linear-gradient(45deg, var(--ea-blue), var(--ea-light-blue));
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            display: inline-block;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+        }
+
+        .download-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px var(--glow-primary);
+        }
+
+        .download-info {
+            margin-top: 1rem;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 1024px) {
+            #dwld {
+                flex-direction: column;
+            }
+            
+            .download-left {
+                width: 100%;
+                max-width: 600px;
+                height: 337.5px;
+            }
+            
+            .download-content {
+                max-width: 100%;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #dwld {
+                flex-direction: column;
+            }
+
+            .hero {
+                height: 100vh;
+                background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), 
+                            url('https://images.pexels.com/photos/358042/pexels-photo-358042.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+                background-size: cover;
+                background-position: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                position: relative;
+            }
+            
+            .download-left {
+                height: 250px;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            padding: 3rem 2rem 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--ea-blue);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: var(--ea-blue);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--bg-secondary);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1rem;
+                border: 10px solid rgba(0, 0, 0, 0.7);
+            }
+
+            .download-left{
+                width: 100%;
+                height: auto;
+            }
+
+            #none{
+                display: none;
+            }
+
+            .logo {
+            font-size: 1.2rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .overview-content {
+                grid-template-columns: 1fr;
+            }
+
+            .overview-image {
+                height: 250px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .requirements-content {
+                grid-template-columns: 1fr;
+            }
+
+            .screenshot-nav {
+                display: none;
+            }
+
+            .screenshot-viewer {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .hero {
+                padding: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo roboto"><i class="fas fa-futbol fa-spin"></i> EA Sports FC 25</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#screenshots">SCREENSHOTS</a></li>
+                <li><a href="#features">FEATURES</a></li>
+                <li><a href="#requirements">REQUIREMENTS</a></li>
+                <li><a href="#download">DOWNLOAD</a></li>
+            </ul>
+            <div class="mobile-menu" id="mobileMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="roboto">EA SPORTS FC 25 MOD APK</h1>
+            <p>Experience the ultimate football simulation on PC with unlimited coins, unlocked players, and premium features. Download now and dominate the pitch!</p>
+            <a href="#download" class="cta-button">DOWNLOAD NOW</a>
+        </div>
+    </section>
+
+    <!-- App Overview Section -->
+    <section class="app-overview" id="overview">
+        <div class="container">
+            <h2 class="section-title roboto">GAME OVERVIEW</h2>
+            <div class="overview-content">
+                <div class="overview-image"></div>
+                <div class="overview-text">
+                    <h3 class="roboto">Ultimate Football Experience</h3>
+                    <p>Play with over 19,000+ real players from 700+ teams in 30+ leagues around the world. Experience the most authentic PC football simulation ever created.</p>
+                    <p id="none">Build your Ultimate Team, compete in Career Mode, and enjoy realistic gameplay with enhanced graphics and physics.</p>
+                    <p id="none">Get unlimited coins, unlocked premium players, and access to all game modes without any restrictions.</p>
+                    <a href="#features" class="read">Read more...</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section class="screenshots" id="screenshots">
+        <div class="container">
+            <h2 class="section-title roboto">GAME SCREENSHOTS</h2>
+            <div class="screenshot-container">
+                <div class="screenshot-viewer">
+                    <div class="screenshot-track" id="screenshotTrack">
+                        <div class="screenshot"></div>
+                        <div class="screenshot"></div>
+                        <div class="screenshot"></div>
+                        <div class="screenshot"></div>
+                        <div class="screenshot"></div>
+                    </div>
+                    <button class="screenshot-nav prev" id="prevBtn">‹</button>
+                    <button class="screenshot-nav next" id="nextBtn">›</button>
+                </div>
+                <div class="screenshot-dots" id="screenshotDots">
+                    <span class="dot active" data-slide="0"></span>
+                    <span class="dot" data-slide="1"></span>
+                    <span class="dot" data-slide="2"></span>
+                    <span class="dot" data-slide="3"></span>
+                    <span class="dot" data-slide="4"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title roboto">PREMIUM FEATURES</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-coins fa-bounce"></i></div>
+                    <h3>Unlimited Coins</h3>
+                    <p>Get unlimited coins and FIFA points to build your dream team and purchase premium players without any restrictions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-users fa-bounce"></i></div>
+                    <h3>All Players Unlocked</h3>
+                    <p>Access all premium players including Icons, Heroes, and special edition cards without spending real money.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-trophy fa-bounce"></i></div>
+                    <h3>Career Mode Enhanced</h3>
+                    <p>Experience enhanced Career Mode with unlimited budget, transfer freedom, and advanced player development options.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-gamepad fa-bounce"></i></div>
+                    <h3>All Game Modes</h3>
+                    <p>Access all game modes including Ultimate Team, Career Mode, Volta Football, and online multiplayer features.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-ban fa-bounce"></i></div>
+                    <h3>No Ads Experience</h3>
+                    <p>Enjoy completely ad-free gaming experience without any interruptions during matches or menus.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-download fa-bounce"></i></div>
+                    <h3>Offline Play</h3>
+                    <p>Play offline without internet connection in various game modes including Career Mode and Kick-Off matches.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Benefits Section -->
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <h2 class="section-title roboto">GAME BENEFITS</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-image">
+                        <i class="fas fa-futbol"></i>
+                    </div>
+                    <div class="benefit-info">
+                        <h3>19,000+ Players</h3>
+                        <p>Play with over 19,000 real players from top leagues including Premier League, La Liga, Serie A, and more.</p>
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-image">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <div class="benefit-info">
+                        <h3>700+ Teams</h3>
+                        <p>Choose from over 700 licensed teams from 30+ leagues around the world with authentic kits and stadiums.</p>
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-image">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="benefit-info">
+                        <h3>Ultimate Team</h3>
+                        <p>Build your Ultimate Team with unlimited resources and compete in various tournaments and challenges.</p>
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-image">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="benefit-info">
+                        <h3>PC Optimized</h3>
+                        <p>Fully optimized for PC with keyboard and controller support, enhanced graphics, and excellent performance on Windows systems.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Requirements Section -->
+    <section class="requirements" id="requirements">
+        <div class="container">
+            <h2 class="section-title roboto">SYSTEM REQUIREMENTS</h2>
+            <div class="requirements-content">
+                <div class="req-card">
+                    <h3 class="roboto">MINIMUM REQUIREMENTS</h3>
+                    <ul class="req-list">
+                        <li><strong><i class="fab fa-windows fa-fade"></i> OS:</strong> Windows 10 64-bit</li>
+                        <li><strong><i class="fas fa-memory fa-fade"></i> RAM:</strong> 8 GB RAM</li>
+                        <li><strong><i class="fas fa-hdd fa-fade"></i> Storage:</strong> 100 GB available space</li>
+                        <li><strong><i class="fas fa-wifi fa-fade"></i> Network:</strong> Internet connection for online modes</li>
+                        <li><strong><i class="fas fa-cog fa-fade"></i> Processor:</strong> Intel Core i5-6600K or AMD FX 8150</li>
+                        <li><strong><i class="fas fa-desktop fa-fade"></i> GPU:</strong> NVIDIA GTX 1050 or AMD RX 560</li>
+                    </ul>
+                </div>
+                <div class="req-card">
+                    <h3 class="roboto">RECOMMENDED REQUIREMENTS</h3>
+                    <ul class="req-list">
+                        <li><strong><i class="fab fa-windows fa-fade"></i> OS:</strong> Windows 11 64-bit</li>
+                        <li><strong><i class="fas fa-memory fa-fade"></i> RAM:</strong> 16 GB RAM or more</li>
+                        <li><strong><i class="fas fa-hdd fa-fade"></i> Storage:</strong> 150 GB SSD space</li>
+                        <li><strong><i class="fas fa-wifi fa-fade"></i> Network:</strong> High-speed broadband</li>
+                        <li><strong><i class="fas fa-cog fa-fade"></i> Processor:</strong> Intel Core i7-10700K or AMD Ryzen 7 3700X</li>
+                        <li><strong><i class="fas fa-desktop fa-fade"></i> GPU:</strong> NVIDIA RTX 3060 or AMD RX 6600 XT</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download" id="download">
+    <div class="container" id="dwld">
+        <div class="download-left">
+            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--ea-blue), var(--ea-light-blue)); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 4rem; color: white;">
+                <i class="fas fa-futbol fa-spin"></i>
+            </div>
+        </div>
+        <div class="download-content">
+            <h2 class="section-title roboto" style="font-size: 2rem;" id="dn">DOWNLOAD NOW</h2>
+            <p>Join millions of football fans worldwide. Download EA Sports FC 25 Mod for PC and start your journey to football greatness today.</p>
+            <a href="#" class="download-button" id="downloadBtn">DOWNLOAD PC</a>
+            <div class="download-info">
+                <p>File size: 85 GB | Version: 1.0.15 | Last updated: December 2024</p>
+                <p>Compatible with Windows 10/11 | Safe & Secure Download</p>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Game Info</h3>
+                    <p>EA Sports FC 25 Mod PC</p>
+                    <p>Category: Sports</p>
+                    <p>Platform: Windows PC</p>
+                    <p>Version: Latest 2024</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <p><a href="#">Installation Guide</a></p>
+                    <p><a href="#">System Requirements</a></p>
+                    <p><a href="#">Troubleshooting</a></p>
+                    <p><a href="#">Contact Support</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Community</h3>
+                    <p><a href="#">Telegram Channel</a></p>
+                    <p><a href="#">Discord Server</a></p>
+                    <p><a href="#">Reddit Community</a></p>
+                    <p><a href="#">Social Media</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <p><a href="#">Privacy Policy</a></p>
+                    <p><a href="#">Terms of Service</a></p>
+                    <p><a href="#">DMCA Policy</a></p>
+                    <p><a href="#">Cookie Policy</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 EA Sports FC 25 Mod PC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        // Screenshot slider functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.screenshot');
+        const totalSlides = slides.length;
+        const track = document.getElementById('screenshotTrack');
+        const dots = document.querySelectorAll('.dot');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        function updateSlider() {
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlider();
+        }
+
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentSlide = index;
+                updateSlider();
+            });
+        });
+
+        // Auto-play screenshots
+        setInterval(nextSlide, 5000);
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(26, 26, 26, 0.95)';
+            } else {
+                navbar.style.background = 'var(--bg-glass)';
+            }
+        });
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for animations
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+
+        // Touch/swipe support for mobile screenshots
+        let startX = 0;
+        let endX = 0;
+
+        const screenshotViewer = document.querySelector('.screenshot-viewer');
+
+        screenshotViewer.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        });
+
+        screenshotViewer.addEventListener('touchend', (e) => {
+            endX = e.changedTouches[0].clientX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = startX - endX;
+
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            }
+        }
+
+        // Download button animation
+        const downloadBtn = document.getElementById('downloadBtn');
+        downloadBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Create ripple effect
+            const ripple = document.createElement('span');
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+            ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+            ripple.style.position = 'absolute';
+            ripple.style.borderRadius = '50%';
+            ripple.style.background = 'rgba(255, 255, 255, 0.6)';
+            ripple.style.transform = 'scale(0)';
+            ripple.style.animation = 'ripple 0.6s linear';
+            ripple.style.pointerEvents = 'none';
+            
+            this.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+            
+            // Simulate download
+            setTimeout(() => {
+                alert('Download will start shortly. Make sure to disable antivirus temporarily during installation.');
+            }, 300);
+        });
+
+        // Add ripple animation CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+            .download-button {
+                position: relative;
+                overflow: hidden;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

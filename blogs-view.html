@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GameHub Blog - In-depth Gaming Articles & Industry Insights">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0a0a0f">
+    <title>GameHub Blog - Gaming Insights & Industry News</title>
+
+    <!-- Optimized Font Loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Exo+2:wght@300;400;500;600;700;800;900&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-glow: #667eea;
+            --secondary-glow: #764ba2;
+            --accent-glow: #f093fb;
+            --success-glow: #4facfe;
+            --warning-glow: #f6d365;
+            --danger-glow: #ff6b6b;
+            --neon-blue: #00f5ff;
+            --neon-pink: #ff006e;
+            --neon-green: #39ff14;
+            --neon-purple: #bf00ff;
+            --cyber-orange: #ff9500;
+            --quantum-gold: #ffd700;
+            --matrix-red: #ff0040;
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #1a1a2e;
+            --bg-card: #16213e;
+            --bg-glass: rgba(0, 0, 0, 0.3);
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --border-color: #475569;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            --glow-primary: rgba(102, 126, 234, 0.5);
+            --glow-secondary: rgba(118, 75, 162, 0.5);
+        }
+
+        body {
+            font-family: 'Rajdhani', 'Arial', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .orbitron {
+            font-family: 'Orbitron', 'Courier New', monospace;
+        }
+
+        .exo {
+            font-family: 'Exo 2', 'Arial', sans-serif;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: background-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .navbar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink), var(--neon-green), var(--neon-purple));
+            background-size: 400% 100%;
+            animation: rainbow-flow 3s linear infinite;
+        }
+
+        @keyframes rainbow-flow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 10, 15, 0.98);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 1rem;
+        }
+
+        .gaming-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .gaming-logo::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(45deg, var(--primary-glow), var(--secondary-glow), var(--accent-glow));
+            border-radius: 12px;
+            opacity: 0;
+            filter: blur(10px);
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .gaming-logo:hover::before {
+            opacity: 0.7;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: #cbd5e1;
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary-glow), var(--secondary-glow));
+            border-radius: 8px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::before {
+            opacity: 0.2;
+        }
+
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+            color: #fff;
+        }
+
+        .nav-link.active {
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
+            color: white;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: rgba(0, 245, 255, 0.1);
+            border: 1px solid rgba(0, 245, 255, 0.3);
+            color: var(--neon-blue);
+            padding: 0.75rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-btn:hover {
+            background: rgba(0, 245, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .mobile-menu {
+            display: none;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            backdrop-filter: blur(20px);
+        }
+
+        .mobile-menu.show {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 16px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .mobile-menu a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 0;
+            background: var(--neon-blue);
+            transition: width 0.3s ease;
+        }
+
+        .mobile-menu a:hover::before {
+            width: 4px;
+        }
+
+        .mobile-menu a:hover {
+            background: var(--bg-glass);
+            transform: translateX(10px);
+            color: var(--neon-blue);
+        }
+
+        /* Holographic Effect */
+        .holographic {
+            background: linear-gradient(45deg, 
+                var(--neon-blue) 0%, 
+                var(--neon-pink) 25%, 
+                var(--neon-green) 50%, 
+                var(--neon-purple) 75%, 
+                var(--neon-blue) 100%);
+            background-size: 400% 400%;
+            animation: holographic-shift 3s ease infinite;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @keyframes holographic-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        #copy {
+            cursor: pointer;
+        }
+
+        /* Main Container */
+        .main-container {
+            margin-top: 65px;
+            min-height: calc(100vh - 80px);
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 50%),
+                linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+        }
+
+        /* Blog Container */
+        .blog-container {
+            max-width: max-content;
+            margin: 0 auto;
+            padding: 1rem;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
+            min-height: calc(100vh - 160px);
+        }
+
+        /* Main Content Area */
+        .blog-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-content::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink), var(--neon-green));
+            opacity: 0.1;
+            z-index: -1;
+            border-radius: 22px;
+        }
+
+        /* Blog Header */
+        .blog-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .category-badge {
+            display: inline-block;
+            background: rgba(0, 245, 255, 0.2);
+            color: var(--neon-blue);
+            padding: 0.4rem 1rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(0, 245, 255, 0.3);
+        }
+
+        .blog-title {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 900;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .blog-excerpt {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Blog Article Content */
+        .blog-article {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+        }
+
+        .blog-article h2 {
+            color: var(--neon-blue);
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 2rem 0 1rem;
+            position: relative;
+        }
+
+        .blog-article h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
+        }
+
+        .blog-article h3 {
+            color: var(--neon-pink);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .blog-article p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+
+        .blog-article ul, .blog-article ol {
+            margin: 1rem 0 1.5rem 2rem;
+            color: var(--text-secondary);
+        }
+
+        .blog-article li {
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-article blockquote {
+            background: rgba(0, 245, 255, 0.1);
+            border-left: 4px solid var(--neon-blue);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: var(--text-secondary);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .blog-article code {
+            background: var(--bg-secondary);
+            color: var(--neon-green);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Orbitron', monospace;
+            font-size: 0.9rem;
+        }
+
+        /* Sidebar */
+        .blog-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .sidebar-widget {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar-widget:hover {
+            transform: translateY(-2px);
+        }
+
+        .widget-title {
+            color: var(--neon-blue);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-family: 'Orbitron', monospace;
+        }
+
+        .related-post {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(71, 85, 105, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .related-post:last-child {
+            border-bottom: none;
+        }
+
+        .related-post:hover {
+            background: rgba(0, 245, 255, 0.05);
+            transform: translateX(5px);
+            border-radius: 8px;
+            padding: 0.75rem;
+        }
+
+        .related-title {
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            line-height: 1.3;
+        }
+
+        .related-meta {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
+
+        /* Enhanced Pagination Controls */
+        .pagination-controls {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .pagination-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+        }
+
+        .pagination-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .pagination-btn:not(:disabled):hover {
+            background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 245, 255, 0.4);
+        }
+
+        .pagination-info {
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        .pagination-counter {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-family: 'Orbitron', monospace;
+        }
+
+        .pagination-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--border-color);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background: var(--neon-blue);
+            transform: scale(1.2);
+            box-shadow: 0 0 10px rgba(0, 245, 255, 0.5);
+        }
+
+        .dot:hover:not(.active) {
+            background: var(--neon-pink);
+            transform: scale(1.1);
+        }
+
+        /* Share Section */
+        .share-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .share-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-family: 'Orbitron', monospace;
+        }
+
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+
+        .share-btn.facebook {
+            background: #1877f2;
+            color: white;
+        }
+
+        .share-btn.facebook:hover {
+            background: #166fe5;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(24, 119, 242, 0.4);
+        }
+
+        .share-btn.twitter {
+            background: #1da1f2;
+            color: white;
+        }
+
+        .share-btn.twitter:hover {
+            background: #1a94da;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(29, 161, 242, 0.4);
+        }
+
+        .share-btn.linkedin {
+            background: #0077b5;
+            color: white;
+        }
+
+        .share-btn.linkedin:hover {
+            background: #006ba1;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 119, 181, 0.4);
+        }
+
+        .share-btn.copy {
+            background: rgba(0, 245, 255, 0.1);
+            border: 1px solid rgba(0, 245, 255, 0.3);
+            color: var(--neon-blue);
+        }
+
+        .share-btn.copy:hover {
+            background: rgba(0, 245, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 245, 255, 0.3);
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            font-size: 1.2rem;
+            color: var(--neon-blue);
+        }
+
+        .loading i {
+            animation: spin 1s linear infinite;
+            margin-right: 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 0.6s ease-out both;
+        }
+
+        .animate-delay-1 { animation-delay: 0.1s; }
+        .animate-delay-2 { animation-delay: 0.2s; }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--neon-blue);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .blog-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 1rem 0.5rem;
+            }
+
+            .blog-content {
+                padding: 1.5rem;
+            }
+
+            .blog-sidebar {
+                order: 1;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .sidebar-widget {
+                padding: 1rem;
+            }
+
+            .pagination-controls {
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 1.5rem;
+            }
+
+            .pagination-info {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .blog-container {
+                padding: 0.5rem;
+            }
+
+            .blog-content {
+                padding: 1rem;
+            }
+
+            .blog-meta {
+                gap: 1rem;
+            }
+
+            .blog-article {
+                font-size: 1rem;
+            }
+
+            .blog-sidebar {
+                order: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .blog-container {
+                grid-template-columns: 1fr;
+            }
+
+            .share-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .share-btn {
+                width: 200px;
+                justify-content: center;
+            }
+
+            .pagination-controls {
+                padding: 1rem;
+            }
+
+            .pagination-btn {
+                padding: 0.75rem 1rem;
+                font-size: 0.8rem;
+            }
+
+            .footer-links {
+                flex-direction: row;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .blog-content {
+                padding: 0.75rem;
+            }
+
+            .blog-title {
+                font-size: 1.5rem;
+            }
+
+            .blog-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .pagination-controls {
+                padding: 1rem;
+            }
+
+            .pagination-btn {
+                padding: 0.75rem 1rem;
+                font-size: 0.8rem;
+            }
+
+            .share-container {
+                padding: 1rem;
+            }
+        }
+
+        /* Selection */
+        ::selection {
+            background: var(--neon-blue);
+            color: white;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="gaming-logo">
+                <i class="logo-icon fa fa-blog"></i>
+                <span class="orbitron holographic" style="font-size: 1.25rem; font-weight: 700;">GameHub</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="index.html" class="nav-link"><i class="fa-solid fa-house-user"></i> Home</a>
+                <a href="games.html" class="nav-link"><i class="fa fa-gamepad"></i> Games</a>
+                <a href="blogs.html" class="nav-link active"><i class="fa fa-blog"></i> Blogs</a>
+                <a href="index.html#about" class="nav-link"><i class="fa fa-address-card"></i> About</a>
+                <a href="index.html#contact" class="nav-link"><i class="fa fa-headset"></i> Contact Us</a>
+            </div>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html">Home</a>
+            <a href="games.html">Games</a>
+            <a href="blogs.html" class="holographic active"><i class="fa fa-blog"></i> Blogs</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#contact">Contact Us</a>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="main-container">
+        <div class="blog-container">
+            <!-- Main Blog Content -->
+            <article class="blog-content animate-fade-in">
+                <div id="loadingState" class="loading" style="display: none;">
+                    <i class="fas fa-spinner"></i>
+                    <span>Loading neural data stream...</span>
+                </div>
+
+                <div id="blogContent">
+                    <!-- Dynamic content will be loaded here -->
+                </div>
+
+                <!-- Enhanced Pagination Controls -->
+                <div class="pagination-controls">
+                    <button class="pagination-btn" id="prevBtn" onclick="navigateBlog(-1)">
+                        <i class="fas fa-chevron-left"></i>
+                        <span>Previous</span>
+                    </button>
+
+                    <div class="pagination-info">
+                        <div class="pagination-counter" id="pageCounter">
+                            Article 1 of 6
+                        </div>
+                        <div class="pagination-dots" id="paginationDots">
+                            <!-- Dots will be generated dynamically -->
+                        </div>
+                    </div>
+
+                    <button class="pagination-btn" id="nextBtn" onclick="navigateBlog(1)">
+                        <span>Next</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <!-- Share Section -->
+                <div class="share-container">
+                    <h3 class="share-title holographic">Share This Article</h3>
+                    <div class="share-buttons">
+                        <button class="share-btn facebook" onclick="shareToWhatsapp()" title="Share on Facebook">
+                            <i class="fa-brands fa-whatsapp" style="color: rgb(37, 211, 102);"></i>
+                            <span >Whatsapp</span>
+                        </button>
+                        <button class="share-btn twitter" onclick="shareToTwitter()" title="Share on Twitter">
+                            <i class="fab fa-twitter"></i>
+                            <span>Twitter</span>
+                        </button>
+                        <button class="share-btn linkedin" onclick="shareToLinkedIn()" title="Share on LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                            <span>LinkedIn</span>
+                        </button>
+                        <button id="copy" class="share-btn copy" onclick="copyToClipboard()" title="Copy Link">
+                            <i class="fas fa-copy"></i>
+                            <span>Copy Link</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Sidebar -->
+            <aside class="blog-sidebar">
+                <!-- Related Posts Widget -->
+                <div class="sidebar-widget animate-fade-in animate-delay-1">
+                    <h3 class="widget-title holographic"><i class="fas fa-layer-group"></i> Related Posts</h3>
+                    <div id="relatedPosts">
+                        <!-- Dynamic related posts will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Quick Navigation Widget -->
+                <div class="sidebar-widget animate-fade-in animate-delay-2">
+                    <h3 class="widget-title holographic"><i class="fas fa-rocket"></i> Quick Access</h3>
+                    <div class="related-post" onclick="window.location.href='games.html'">
+                        <div class="related-title">🎮 Explore Game Zone</div>
+                        <div class="related-meta">Discover premium games</div>
+                    </div>
+                    <div class="related-post" onclick="window.location.href='index.html#contact'">
+                        <div class="related-title">📡 Contact Neural Hub</div>
+                        <div class="related-meta">Connect with us</div>
+                    </div>
+                    <div class="related-post" onclick="window.location.href='blogs.html'">
+                        <div class="related-title">📚 All Blog Posts</div>
+                        <div class="related-meta">Browse all articles</div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="games.html">Games</a>
+                <a href="blogs.html">All Blogs</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+            <p style="color: var(--text-secondary);" class="holographic">
+                © 2025 GameHub Neural Network. All rights reserved. Powered by quantum computing.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Blog data
+        const blogPosts = [
+            {
+                id: 1,
+                title: "The Future of Gaming AI",
+                category: "Technology",
+                excerpt: "Exploring how artificial intelligence is revolutionizing game development and creating immersive player experiences through advanced neural networks and machine learning algorithms.",
+                date: "January 15, 2025",
+                author: "Alex Chen",
+                readTime: "8 min read",
+                content: `
+                    <p>Artificial Intelligence is no longer a futuristic concept in gaming – it's actively reshaping how we create and experience digital entertainment. From sophisticated NPCs to procedural world generation, AI is becoming the invisible architect of our virtual adventures.</p>
+                    
+                    <h2>Neural Networks in Game Design</h2>
+                    <p>Modern game development leverages neural networks to create more realistic and responsive gaming environments. These systems can analyze player behavior patterns and adapt gameplay mechanics in real-time, creating personalized experiences that evolve with each gaming session.</p>
+                    
+                    <blockquote>"AI doesn't replace creativity – it amplifies it. We're seeing developers use AI to handle repetitive tasks while focusing their energy on innovative storytelling and unique gameplay mechanics." - Dr. Sarah Martinez, AI Gaming Research</blockquote>
+                    
+                    <h3>Procedural Content Generation</h3>
+                    <p>One of the most exciting applications is procedural content generation. AI algorithms can create vast worlds, populate them with diverse ecosystems, and even generate storylines that branch based on player choices. This technology enables infinite replayability and ensures no two gaming experiences are identical.</p>
+                    
+                    <h3>Advanced NPC Behavior</h3>
+                    <p>Gone are the days of predictable NPC patterns. Modern AI-driven characters exhibit complex behaviors, learn from player interactions, and develop unique personality traits over time. These virtual beings can:</p>
+                    <ul>
+                        <li>Adapt their dialogue based on player history</li>
+                        <li>Form relationships and rivalries with other NPCs</li>
+                        <li>Remember past encounters and reference them in future interactions</li>
+                        <li>Develop emotional responses to world events</li>
+                    </ul>
+                    
+                    <h2>The Quantum Leap Forward</h2>
+                    <p>As we enter the quantum computing era, AI in gaming is poised for unprecedented growth. Quantum-enhanced algorithms will enable real-time physics simulations, weather patterns that affect gameplay, and AI opponents that learn and evolve continuously.</p>
+                    
+                    <p>The future of gaming AI promises experiences so immersive and personalized that the line between virtual and reality becomes beautifully blurred. We're not just playing games – we're entering living, breathing digital universes that respond to our every action and emotion.</p>
+                `
+            },
+            {
+                id: 2,
+                title: "Quantum Graphics Revolution",
+                category: "Graphics",
+                excerpt: "Discover the breakthrough in quantum-enhanced graphics rendering that's changing the visual landscape of gaming with unprecedented realism and performance.",
+                date: "January 12, 2025",
+                author: "Sarah Kim",
+                readTime: "6 min read",
+                content: `
+                    <p>The gaming industry stands on the precipice of a visual revolution. Quantum-enhanced graphics processing is transforming how we render digital worlds, bringing photorealistic visuals and impossible performance improvements to mainstream gaming.</p>
+                    
+                    <h2>Quantum Ray Tracing</h2>
+                    <p>Traditional ray tracing requires enormous computational power, but quantum algorithms can calculate light behavior across infinite parallel dimensions simultaneously. This breakthrough enables real-time global illumination that was previously impossible.</p>
+                    
+                    <h3>Revolutionary Rendering Pipeline</h3>
+                    <p>The quantum rendering pipeline processes graphics data through quantum superposition, allowing multiple rendering paths to be calculated concurrently. This results in:</p>
+                    <ul>
+                        <li>100x faster ray tracing calculations</li>
+                        <li>Perfect global illumination in real-time</li>
+                        <li>Dynamic lighting that responds to quantum fluctuations</li>
+                        <li>Volumetric effects with zero performance impact</li>
+                    </ul>
+                    
+                    <blockquote>"We're witnessing the birth of true photorealism in gaming. Quantum graphics don't just improve visual fidelity – they redefine what's possible in real-time rendering." - Marcus Rodriguez, Quantum Graphics Institute</blockquote>
+                    
+                    <h2>Holographic Display Integration</h2>
+                    <p>Quantum graphics naturally complement holographic display technology, creating three-dimensional gaming experiences that extend beyond traditional screens. Players can literally step inside their favorite games, interacting with quantum-rendered environments in full 360-degree immersion.</p>
+                    
+                    <h3>The Neural Connection</h3>
+                    <p>When combined with neural interface technology, quantum graphics create visual experiences indistinguishable from reality. The quantum processing power enables direct visual cortex stimulation, bypassing traditional display limitations entirely.</p>
+                    
+                    <p>As quantum graphics technology matures, we're entering an era where the visual quality of games will be limited only by our imagination, not our hardware capabilities.</p>
+                `
+            },
+            {
+                id: 3,
+                title: "Neural Interface Gaming",
+                category: "Innovation",
+                excerpt: "How brain-computer interfaces are opening new dimensions in player control and immersive gameplay mechanics, ushering in the next evolution of gaming input.",
+                date: "January 10, 2025",
+                author: "Marcus Rivera",
+                readTime: "10 min read",
+                content: `
+                    <p>The dream of controlling games with pure thought is becoming reality. Neural interface technology is revolutionizing gaming input, creating unprecedented levels of immersion and accessibility that were once confined to science fiction.</p>
+                    
+                    <h2>Direct Neural Input</h2>
+                    <p>Modern brain-computer interfaces can interpret neural signals with remarkable precision, translating thoughts into game actions faster than traditional input methods. This technology opens gaming to players with physical disabilities while enhancing the experience for all users.</p>
+                    
+                    <h3>Thought-Speed Gaming</h3>
+                    <p>Neural interfaces eliminate the delay between thought and action. Professional esports players using neural interfaces demonstrate reaction times approaching the theoretical limits of human consciousness. This creates new categories of competitive gaming where mental agility becomes as important as physical dexterity.</p>
+                    
+                    <blockquote>"Neural gaming isn't just about faster inputs – it's about creating a direct pathway between imagination and digital reality. Players don't just control characters; they become them." - Dr. Elena Vasquez, Neurogaming Research Lab</blockquote>
+                    
+                    <h2>Emotion-Responsive Environments</h2>
+                    <p>Advanced neural interfaces can detect emotional states, allowing games to respond dynamically to player feelings. Environments might become more challenging when players feel confident, or provide comfort during moments of frustration.</p>
+                    
+                    <h3>Memory Palace Gaming</h3>
+                    <p>Neural interfaces can tap into human memory patterns, creating games that adapt to personal experiences and learning styles. Players might encounter familiar locations reconstructed from their memories, or face challenges tailored to their cognitive strengths.</p>
+                    
+                    <ul>
+                        <li>Biometric feedback integration for health monitoring</li>
+                        <li>Dream-state gaming during sleep cycles</li>
+                        <li>Shared consciousness multiplayer experiences</li>
+                        <li>Therapeutic applications for cognitive rehabilitation</li>
+                    </ul>
+                    
+                    <h2>The Ethical Frontier</h2>
+                    <p>As neural gaming technology advances, we must carefully consider privacy, consent, and the psychological impact of direct brain-computer interaction. The future of neural gaming will require robust ethical frameworks to protect player autonomy while enabling incredible new experiences.</p>
+                    
+                    <p>Neural interface gaming represents humanity's next evolutionary step in digital entertainment, where the boundary between mind and machine dissolves into pure, unfiltered experience.</p>
+                `
+            },
+            {
+                id: 4,
+                title: "Metaverse Gaming Ecosystems",
+                category: "Metaverse",
+                excerpt: "Building interconnected virtual worlds where players can seamlessly transition between different gaming universes, creating persistent digital spaces for infinite exploration.",
+                date: "January 8, 2025",
+                author: "Luna Park",
+                readTime: "7 min read",
+                content: `
+                    <p>The metaverse isn't just a buzzword – it's the fundamental reimagining of digital spaces as persistent, interconnected realities. Gaming ecosystems are leading this transformation, creating universes where players build lasting identities and relationships that transcend individual titles.</p>
+                    
+                    <h2>Cross-Reality Character Persistence</h2>
+                    <p>Imagine creating a character in one game and seamlessly bringing their skills, achievements, and relationships into entirely different virtual worlds. Metaverse gaming ecosystems make this possible through standardized character protocols and universal progression systems.</p>
+                    
+                    <h3>Universal Digital Identities</h3>
+                    <p>Players develop rich digital personas that evolve across multiple game universes. These identities carry reputation, relationships, and accumulated wisdom from countless adventures, creating meaningful continuity in digital experiences.</p>
+                    
+                    <blockquote>"The metaverse gaming ecosystem isn't about one perfect virtual world – it's about infinite interconnected realities where every choice matters and every relationship persists." - Dr. Kenji Nakamura, Virtual Worlds Institute</blockquote>
+                    
+                    <h2>Economic Interdependence</h2>
+                    <p>Metaverse gaming ecosystems feature interconnected economies where actions in one game affect markets in others. Crafting materials from a fantasy RPG might be valuable resources in a sci-fi space exploration game, creating complex trade networks across reality boundaries.</p>
+                    
+                    <h3>Persistent World Events</h3>
+                    <p>Major events ripple across connected game universes, creating shared history and collective memory. A war in one realm might refugee NPCs fleeing to safety in neighboring games, while scientific discoveries unlock new technologies across multiple titles.</p>
+                    
+                    <ul>
+                        <li>Seamless avatar transfer between compatible games</li>
+                        <li>Cross-game guilds and social structures</li>
+                        <li>Shared achievement and progression systems</li>
+                        <li>Universal virtual currency and asset ownership</li>
+                    </ul>
+                    
+                    <h2>Social Architecture</h2>
+                    <p>Metaverse gaming ecosystems prioritize social interaction and community building. Players don't just visit these worlds – they inhabit them, forming lasting bonds and collaborative relationships that extend beyond gaming sessions.</p>
+                    
+                    <p>As these ecosystems mature, we're creating digital civilizations where players become citizens of infinite realities, building legacies that persist across virtual eternities.</p>
+                `
+            },
+            {
+                id: 5,
+                title: "Cybersecurity in Gaming",
+                category: "Security",
+                excerpt: "Protecting player data and ensuring secure gaming environments in an increasingly connected digital world through advanced encryption and anti-cheat systems.",
+                date: "January 5, 2025",
+                author: "David Torres",
+                readTime: "9 min read",
+                content: `
+                    <p>As gaming becomes increasingly connected and valuable digital assets proliferate, cybersecurity has evolved from an afterthought to a cornerstone of game development. Modern gaming environments face sophisticated threats requiring military-grade protection systems.</p>
+                    
+                    <h2>Quantum Encryption Protocols</h2>
+                    <p>Traditional encryption methods are becoming obsolete in the face of quantum computing threats. Gaming platforms now implement quantum-resistant encryption algorithms that protect player data even against future technological advances.</p>
+                    
+                    <h3>Zero-Knowledge Authentication</h3>
+                    <p>Players can now authenticate their identity without revealing sensitive information. Zero-knowledge proofs allow secure login while maintaining complete privacy, protecting personal data from both malicious actors and overzealous data collection.</p>
+                    
+                    <blockquote>"Gaming security isn't just about preventing cheating – it's about protecting digital lives. Players invest thousands of hours and real money in virtual identities that deserve the same protection as physical assets." - Rebecca Chen, Cybersecurity Gaming Alliance</blockquote>
+                    
+                    <h2>AI-Powered Threat Detection</h2>
+                    <p>Machine learning algorithms continuously monitor gaming environments for suspicious behavior, identifying cheaters, bots, and security threats in real-time. These systems learn from millions of player interactions to distinguish between legitimate and malicious activity.</p>
+                    
+                    <h3>Behavioral Analysis Systems</h3>
+                    <p>Advanced security systems build behavioral profiles for each player, detecting anomalies that might indicate account compromise or unauthorized access. This creates personalized security that adapts to individual play patterns.</p>
+                    
+                    <ul>
+                        <li>Real-time cheat detection and prevention</li>
+                        <li>Secure virtual asset trading platforms</li>
+                        <li>Privacy-preserving player analytics</li>
+                        <li>Distributed denial-of-service protection</li>
+                    </ul>
+                    
+                    <h2>Blockchain Gaming Security</h2>
+                    <p>Blockchain technology provides immutable ownership records for digital assets while maintaining player privacy through advanced cryptographic techniques. Smart contracts ensure fair gameplay and transparent economic transactions.</p>
+                    
+                    <h3>Decentralized Identity Management</h3>
+                    <p>Players control their own identity data through decentralized systems, reducing the risk of massive data breaches while enabling seamless cross-platform experiences.</p>
+                    
+                    <p>The future of gaming security lies in proactive, adaptive systems that protect player privacy while fostering fair, competitive environments where skill and creativity triumph over malicious exploitation.</p>
+                `
+            },
+            {
+                id: 6,
+                title: "Sustainable Gaming Technology",
+                category: "Sustainability",
+                excerpt: "Environmental innovations in gaming hardware and software development for a greener digital future, featuring energy-efficient processing and eco-friendly practices.",
+                date: "January 3, 2025",
+                author: "Emma Watson",
+                readTime: "8 min read",
+                content: `
+                    <p>The gaming industry is embracing environmental responsibility, developing innovative technologies that deliver stunning experiences while minimizing ecological impact. From quantum-efficient processors to carbon-neutral cloud gaming, the future of entertainment is green.</p>
+                    
+                    <h2>Energy-Efficient Quantum Processing</h2>
+                    <p>Quantum gaming processors operate at near-absolute zero temperatures, dramatically reducing energy consumption while providing unprecedented computational power. These systems can process complex graphics and AI calculations using a fraction of traditional energy requirements.</p>
+                    
+                    <h3>Renewable Energy Gaming Centers</h3>
+                    <p>Next-generation gaming data centers run entirely on renewable energy sources, with solar panels, wind turbines, and geothermal systems powering global gaming networks. Many facilities achieve negative carbon footprints through innovative energy capture and storage systems.</p>
+                    
+                    <blockquote>"Sustainable gaming isn't just about reducing environmental impact – it's about creating technologies that harmonize with natural systems while delivering extraordinary digital experiences." - Dr. James Mitchell, Green Computing Initiative</blockquote>
+                    
+                    <h2>Biodegradable Gaming Hardware</h2>
+                    <p>Revolutionary materials science has produced gaming controllers and components from biodegradable polymers and recycled materials. These devices perform identically to traditional hardware while breaking down harmlessly when disposed of properly.</p>
+                    
+                    <h3>Carbon-Negative Game Development</h3>
+                    <p>Development studios now operate as carbon sinks, using renewable energy and carbon capture technologies to remove more greenhouse gases from the atmosphere than they produce. Many games include environmental themes that educate players about sustainability.</p>
+                    
+                    <ul>
+                        <li>Solar-powered portable gaming devices</li>
+                        <li>Cloud gaming with zero-emission data centers</li>
+                        <li>Recycling programs for gaming hardware</li>
+                        <li>Virtual environments that teach ecological principles</li>
+                    </ul>
+                    
+                    <h2>Circular Economy Gaming</h2>
+                    <p>Gaming companies are adopting circular economy principles, designing products for complete recyclability and offering trade-in programs that ensure no gaming hardware ends up in landfills. Digital game distribution eliminates physical packaging waste entirely.</p>
+                    
+                    <h3>Environmental Impact Tracking</h3>
+                    <p>Players can monitor their gaming's environmental impact through real-time dashboards showing energy consumption, carbon footprint, and sustainability metrics. Gamification elements reward eco-friendly gaming habits and renewable energy usage.</p>
+                    
+                    <p>Sustainable gaming technology proves that environmental responsibility and cutting-edge entertainment aren't mutually exclusive – they're complementary forces driving innovation toward a more sustainable digital future.</p>
+                `
+            }
+        ];
+
+        // Current blog state
+        let currentBlogIndex = 0;
+
+        // Initialize the blog viewer
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeBlogViewer();
+            setupEventListeners();
+            setupScrollEffects();
+            generatePaginationDots();
+        });
+
+        function initializeBlogViewer() {
+            // Get blog ID from URL parameters if available
+            const urlParams = new URLSearchParams(window.location.search);
+            const blogId = urlParams.get('id');
+            
+            if (blogId) {
+                const blogIndex = blogPosts.findIndex(blog => blog.id === parseInt(blogId));
+                if (blogIndex !== -1) {
+                    currentBlogIndex = blogIndex;
+                }
+            }
+            
+            loadBlog(currentBlogIndex);
+            updateRelatedPosts();
+        }
+
+        function loadBlog(index) {
+            const blog = blogPosts[index];
+            const blogContent = document.getElementById('blogContent');
+            
+            // Show loading state
+            showLoading(true);
+            
+            // Simulate loading delay for better UX
+            setTimeout(() => {
+                blogContent.innerHTML = `
+                    <div class="blog-header">
+                        <span class="category-badge">${blog.category}</span>
+                        <h1 class="blog-title">${blog.title}</h1>
+                        <div class="blog-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-calendar-alt holographic"></i>
+                                <span>${blog.date}</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-user holographic"></i>
+                                <span>${blog.author}</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-clock holographic"></i>
+                                <span>${blog.readTime}</span>
+                            </div>
+                        </div>
+                        <div class="blog-excerpt">${blog.excerpt}</div>
+                    </div>
+                    <div class="blog-article">${blog.content}</div>
+                `;
+                
+                // Update pagination
+                updatePagination();
+                showLoading(false);
+                
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                // Update URL without page reload
+                const newUrl = new URL(window.location);
+                newUrl.searchParams.set('id', blog.id);
+                window.history.replaceState({}, '', newUrl);
+                
+            }, 500);
+        }
+
+        function updateRelatedPosts() {
+            const relatedPostsContainer = document.getElementById('relatedPosts');
+            const currentBlog = blogPosts[currentBlogIndex];
+            
+            // Get other posts (excluding current)
+            const otherPosts = blogPosts.filter((_, index) => index !== currentBlogIndex);
+            
+            // Shuffle and take first 4
+            const shuffled = otherPosts.sort(() => 0.5 - Math.random());
+            const relatedPosts = shuffled.slice(0, 4);
+            
+            relatedPostsContainer.innerHTML = relatedPosts.map(post => `
+                <div class="related-post" onclick="loadRelatedBlog(${post.id})">
+                    <div class="related-title">${post.title}</div>
+                    <div class="related-meta">${post.date} • ${post.readTime}</div>
+                </div>
+            `).join('');
+        }
+
+        function loadRelatedBlog(blogId) {
+            const blogIndex = blogPosts.findIndex(blog => blog.id === parseInt(blogId));
+            if (blogIndex !== -1) {
+                currentBlogIndex = blogIndex;
+                loadBlog(currentBlogIndex);
+                updateRelatedPosts();
+            }
+        }
+
+        function navigateBlog(direction) {
+            const newIndex = currentBlogIndex + direction;
+            
+            if (newIndex >= 0 && newIndex < blogPosts.length) {
+                currentBlogIndex = newIndex;
+                loadBlog(currentBlogIndex);
+                updateRelatedPosts();
+            }
+        }
+
+        function updatePagination() {
+            const pageCounter = document.getElementById('pageCounter');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            pageCounter.textContent = `Article ${currentBlogIndex + 1} of ${blogPosts.length}`;
+            
+            // Update button states
+            prevBtn.disabled = currentBlogIndex === 0;
+            nextBtn.disabled = currentBlogIndex === blogPosts.length - 1;
+
+            // Update pagination dots
+            updatePaginationDots();
+        }
+
+        function generatePaginationDots() {
+            const dotsContainer = document.getElementById('paginationDots');
+            if (!dotsContainer) return;
+            
+            dotsContainer.innerHTML = '';
+            
+            for (let i = 0; i < blogPosts.length; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'dot';
+                dot.setAttribute('data-index', i);
+                dot.addEventListener('click', () => {
+                    currentBlogIndex = i;
+                    loadBlog(currentBlogIndex);
+                    updateRelatedPosts();
+                });
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        function updatePaginationDots() {
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach((dot, index) => {
+                if (index === currentBlogIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // Share functions
+        function shareToWhatsapp() {
+    const currentBlog = blogPosts[currentBlogIndex];
+    const url = encodeURIComponent(window.location.href);
+    const title = encodeURIComponent(currentBlog.title);
+    window.open(`https://api.whatsapp.com/send?text=${title}%20${url}`, '_blank');
+}
+
+
+        function shareToTwitter() {
+            const currentBlog = blogPosts[currentBlogIndex];
+            const url = encodeURIComponent(window.location.href);
+            const title = encodeURIComponent(`${currentBlog.title} - GameHub Blog`);
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${title}`, '_blank');
+        }
+
+        function shareToLinkedIn() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+        }
+
+        function copyToClipboard() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                // Show success message
+                const copyBtn = document.querySelector('.share-btn.copy span');
+                if (copyBtn) {
+                    const originalText = copyBtn.textContent;
+                    copyBtn.textContent = 'Copied! ✅';
+                    setTimeout(() => {
+                        copyBtn.textContent = originalText;
+                    }, 2000);
+                }
+            }).catch(() => {
+                // Fallback for browsers that don't support clipboard API
+                const textArea = document.createElement('textarea');
+                textArea.value = window.location.href;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                const copyBtn = document.querySelector('.share-btn.copy span');
+                if (copyBtn) {
+                    const originalText = copyBtn.textContent;
+                    copyBtn.textContent = 'Copied! ✅';
+                    setTimeout(() => {
+                        copyBtn.textContent = originalText;
+                    }, 2000);
+                }
+            });
+        }
+
+        function showLoading(show) {
+            const loadingState = document.getElementById('loadingState');
+            const blogContent = document.getElementById('blogContent');
+            
+            if (show) {
+                loadingState.style.display = 'flex';
+                blogContent.style.display = 'none';
+            } else {
+                loadingState.style.display = 'none';
+                blogContent.style.display = 'block';
+            }
+        }
+
+        function setupEventListeners() {
+            // Mobile menu
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('show');
+                });
+            }
+
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowLeft') {
+                    navigateBlog(-1);
+                } else if (e.key === 'ArrowRight') {
+                    navigateBlog(1);
+                } else if (e.key === 'Escape') {
+                    if (mobileMenu && mobileMenu.classList.contains('show')) {
+                        mobileMenu.classList.remove('show');
+                    }
+                }
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (mobileMenuBtn && mobileMenu && 
+                    !mobileMenuBtn.contains(e.target) && 
+                    !mobileMenu.contains(e.target)) {
+                    mobileMenu.classList.remove('show');
+                }
+            });
+        }
+
+        function setupScrollEffects() {
+            let ticking = false;
+            
+            function updateScrollEffects() {
+                if (!ticking) {
+                    requestAnimationFrame(() => {
+                        const scrollY = window.scrollY;
+                        const navbar = document.getElementById('navbar');
+                        
+                        if (navbar) {
+                            if (scrollY > 50) {
+                                navbar.classList.add('scrolled');
+                            } else {
+                                navbar.classList.remove('scrolled');
+                            }
+                        }
+                        
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }
+
+            window.addEventListener('scroll', updateScrollEffects, { passive: true });
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

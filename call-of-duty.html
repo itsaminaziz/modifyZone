@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call of Duty: Modern Warfare</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Exo+2:wght@300;400;500;600;700;800;900&display=swap">
+    <style>
+        :root {
+            --primary-glow: #2d5016;
+            --secondary-glow: #1a2e0b;
+            --accent-glow: #ff6600;
+            --success-glow: #4a7c59;
+            --warning-glow: #d4af37;
+            --danger-glow: #cc0000;
+            --tactical-green: #2d5016;
+            --military-orange: #ff6600;
+            --combat-red: #cc0000;
+            --stealth-gray: #2a2a2a;
+            --camo-brown: #8b6914;
+            --night-vision: #39ff14;
+            --download-orange: #ff6600;
+            --bg-primary: #0a0f0a;
+            --bg-secondary: #1a2e1a;
+            --bg-card: #162116;
+            --bg-glass: rgba(0, 0, 0, 0.4);
+            --text-primary: #f1f5f1;
+            --text-secondary: #cbd5cb;
+            --border-color: #475547;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+            --glow-primary: rgba(45, 80, 22, 0.6);
+            --glow-secondary: rgba(26, 46, 11, 0.6);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rajdhani', 'Arial', sans-serif;
+            font-display: swap;
+            transition: none;
+            overflow-x: hidden;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .orbitron {
+            font-family: 'Orbitron', 'Courier New', monospace;
+            font-display: swap;
+        }
+
+        .exo {
+            font-family: 'Exo 2', 'Arial', sans-serif;
+            font-display: swap;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 0.5rem 2rem;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid orangered;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--military-orange);
+            text-shadow: 0 0 10px var(--glow-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--military-orange);
+            text-shadow: 0 0 5px var(--glow-primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--military-orange);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-primary);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Images/Call of Duty/bg.jpeg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            color: var(--text-primary);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, var(--military-orange), var(--combat-red));
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: var(--shadow);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(255, 102, 0, 0.3);
+        }
+
+        /* Game Overview Section */
+        .game-overview {
+            padding: 1rem 2rem;
+            background: var(--bg-secondary);
+        }
+
+        .container {
+            max-width: 1200px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--military-orange);
+            text-shadow: 0 0 10px var(--glow-primary);
+        }
+
+        .read{
+            text-decoration: none;
+            color: white;
+        }
+
+        .read:hover{
+            color: orangered;
+        }
+
+        .overview-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .overview-image {
+            width: 100%;
+            height: 400px;
+            background: url('Images/Call of Duty/bg.jpeg') center/cover;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border: 2px solid var(--border-color);
+        }
+
+        .overview-text {
+            background-color: rgba(255, 102, 0, 0.15);
+            border-radius: 20px;
+            border: 2px dashed rgba(255, 102, 0, 0.1);
+            padding: 1.4rem;
+        }
+
+        .overview-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--military-orange);
+        }
+
+        .overview-text p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        /* Screenshots Section */
+        .screenshots {
+            padding: 1rem 2rem;
+            background: var(--bg-primary);
+        }
+
+        .screenshot-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .screenshot-viewer {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .screenshot-track {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+
+        .screenshot {
+            min-width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+        }
+
+        .screenshot-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--bg-glass);
+            border: none;
+            color: var(--text-primary);
+            font-size: 2rem;
+            padding: 1rem;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .screenshot-nav:hover {
+            background: var(--military-orange);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .prev {
+            left: 20px;
+        }
+
+        .next {
+            right: 20px;
+        }
+
+        .screenshot-dots {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .dot {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--border-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: var(--military-orange);
+            box-shadow: 0 0 10px var(--glow-primary);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 1rem 2rem;
+            background: var(--bg-secondary);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px var(--glow-secondary);
+            border-color: var(--military-orange);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--military-orange);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+        }
+
+        /* Main Characters Section */
+        .characters {
+            padding: 1rem 2rem;
+            background: var(--bg-primary);
+        }
+
+        .characters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .character-card {
+            background: var(--bg-card);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .character-card:hover {
+            transform: scale(1.01);
+            box-shadow: 0 15px 30px var(--glow-secondary);
+        }
+
+        .character-image {
+            width: 100%;
+            height: 300px;
+            background: url('data:image/jpeg;base64,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') center/cover;
+        }
+
+        .character-info {
+            padding: 1.5rem;
+        }
+
+        .character-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--military-orange);
+        }
+
+        .character-info p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* System Requirements */
+        .requirements {
+            padding: 1rem 2rem;
+            background: var(--bg-secondary);
+        }
+
+        .requirements-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .req-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        .req-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--military-orange);
+            text-align: center;
+        }
+
+        .req-list {
+            list-style: none;
+        }
+
+        .req-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        .req-list li:last-child {
+            border-bottom: none;
+        }
+
+        .req-list strong {
+            color: var(--text-primary);
+        }
+
+        /* Download Section */
+
+        .download {
+        padding: 1rem 2rem;
+        background: var(--bg-primary);
+        text-align: center;
+    }
+
+    #dwld {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    #dn{
+        margin-bottom: 0;
+    }
+
+    .download-left {
+        width: 600px;
+        height: 337.5px; /* 600 * (369/656) to maintain aspect ratio */
+        margin: 0 auto;
+        background-color: #27362773;
+        border-radius: 20px;
+        border: 2px dashed #385016c5;
+        transition: 0.2s;
+        overflow: hidden;
+        padding: 0;
+    }
+
+    .download-left:hover {
+        background-color: #273627c0;
+        transform: scale(1.009);
+        border: 2px dashed #503b16;
+    }
+
+    .download-content {
+        max-width: 500px;
+        margin: 0 auto;
+        background-color: #27362773;
+        border-radius: 20px;
+        border: 2px dashed #385016c5;
+        transition: 0.2s;
+        padding: 2rem;
+    }
+
+    .download-content:hover {
+        background-color: #273627c0;
+        transform: scale(1.009);
+        border: 2px dashed #503b16;
+    }
+
+    .download-button {
+        background: linear-gradient(45deg, var(--download-orange), var(--combat-red));
+        color: white;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 10px;
+        font-size: 1.3rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 1rem;
+        display: inline-block;
+        text-decoration: none;
+        box-shadow: var(--shadow);
+    }
+
+    .download-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 30px rgba(255, 102, 0, 0.4);
+    }
+
+    .download-info {
+        margin-top: 1rem;
+        color: var(--text-secondary);
+    }
+
+    @media (max-width: 1196){
+        .download-left {
+        width: 200px;
+        height: 281.25px;}
+    }
+
+    @media (max-width: 1300px) {
+        #dwld {
+            flex-direction: row;
+        }
+    }
+    
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            padding: 3rem 2rem 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--military-orange);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: var(--military-orange);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--bg-secondary);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1rem;
+                border: 10px solid rgba(0, 0, 0, 0.7);
+            }
+
+            .download-left{
+                width: 100%;
+                height: auto;
+            }
+
+            #none{
+                display: none;
+            }
+
+            .logo {
+            font-size: 1.2rem;
+            }
+
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .overview-content {
+                grid-template-columns: 1fr;
+            }
+
+            .overview-image {
+                height: 250px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .characters-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .requirements-content {
+                grid-template-columns: 1fr;
+            }
+
+            .screenshot-nav {
+                display: none;
+            }
+
+            .screenshot-viewer {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .hero {
+                padding: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .characters-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo orbitron"><i class="fa-solid fa-crosshairs fa-beat"></i> Call Of Duty MW I</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#screenshots">SCREENSHOTS</a></li>
+                <li><a href="#features">FEATURES</a></li>
+                <li><a href="#requirements">REQUIREMENTS</a></li>
+                <li><a href="#download">DOWNLOAD</a></li>
+            </ul>
+            <div class="mobile-menu" id="mobileMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="orbitron">CALL OF DUTY MODERN WARFARE I</h1>
+            <p>Experience the most intense and realistic military combat simulation ever created. Join the fight in the ultimate modern warfare experience.</p>
+            <a href="#download" class="cta-button">DOWNLOAD NOW</a>
+        </div>
+    </section>
+
+    <!-- Game Overview Section -->
+    <section class="game-overview" id="overview">
+        <div class="container">
+            <h2 class="section-title orbitron">GAME OVERVIEW</h2>
+            <div class="overview-content">
+                <div class="overview-image"></div>
+                <div class="overview-text">
+                    <h3 class="orbitron">Ultimate Combat Experience</h3>
+                    <p>Immerse yourself in the most authentic military combat experience with cutting-edge graphics, realistic physics, and intense multiplayer action.</p>
+                    <p id="none">Fight across diverse battlefields, from urban environments to desert landscapes, using an arsenal of modern weapons and tactical equipment.</p>
+                    <p id="none">Experience the thrill of coordinated team-based combat with friends or challenge yourself in the gripping single-player campaign.</p>
+                    <a href="###" class="read">Read more...</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section class="screenshots" id="screenshots">
+        <div class="container">
+            <h2 class="section-title orbitron">SCREENSHOTS</h2>
+            <div class="screenshot-container">
+                <div class="screenshot-viewer">
+                    <div class="screenshot-track" id="screenshotTrack">
+                        <div class="screenshot" style="background-image: url('')"></div>
+                        <div class="screenshot" style="background-image: url('')"></div>
+                        <div class="screenshot" style="background-image: url('')"></div>
+                        <div class="screenshot" style="background-image: url('')"></div>
+                        <div class="screenshot" style="background-image: url('')"></div>
+                    </div>
+                    <button class="screenshot-nav prev" id="prevBtn">‹</button>
+                    <button class="screenshot-nav next" id="nextBtn">›</button>
+                </div>
+                <div class="screenshot-dots" id="screenshotDots">
+                    <span class="dot active" data-slide="0"></span>
+                    <span class="dot" data-slide="1"></span>
+                    <span class="dot" data-slide="2"></span>
+                    <span class="dot" data-slide="3"></span>
+                    <span class="dot" data-slide="4"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title orbitron">GAME FEATURES</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-crosshairs fa-beat"></i></div>
+                    <h3>Precision Combat</h3>
+                    <p>Experience realistic ballistics and weapon handling with advanced physics simulation for the most authentic combat experience.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-globe fa-beat"></i></div>
+                    <h3>Global Battlefields</h3>
+                    <p>Fight across diverse locations worldwide, from urban cityscapes to remote military installations with dynamic weather systems.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-users-viewfinder fa-beat"></i></div>
+                    <h3>Multiplayer Modes</h3>
+                    <p>Engage in intense multiplayer battles with up to 64 players, featuring multiple game modes and competitive ranking systems.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-shield-halved fa-beat"></i></div>
+                    <h3>Tactical Equipment</h3>
+                    <p>Utilize advanced military equipment including drones, night vision, and specialized gear for strategic advantages.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-book-open fa-beat"></i></div>
+                    <h3>Epic Campaign</h3>
+                    <p>Experience a gripping single-player story mode with cinematic cutscenes and memorable characters in intense missions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-palette fa-beat"></i></div>
+                    <h3>Stunning Graphics</h3>
+                    <p>Powered by the latest engine technology delivering photorealistic visuals, dynamic lighting, and immersive sound design.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Characters Section -->
+    <section class="characters" id="characters">
+        <div class="container">
+            <h2 class="section-title orbitron">MAIN CHARACTERS</h2>
+            <div class="characters-grid">
+                <div class="character-card">
+                    <div class="character-image"></div>
+                    <div class="character-info">
+                        <h3>Captain Price</h3>
+                        <p>Veteran SAS officer and leader of Task Force 141. Known for his tactical expertise and unwavering dedication to his team.</p>
+                    </div>
+                </div>
+                <div class="character-card">
+                    <div class="character-image"></div>
+                    <div class="character-info">
+                        <h3>Soap MacTavish</h3>
+                        <p>Elite SAS operative with exceptional combat skills and quick thinking under pressure. A key member of the team.</p>
+                    </div>
+                </div>
+                <div class="character-card">
+                    <div class="character-image"></div>
+                    <div class="character-info">
+                        <h3>Ghost</h3>
+                        <p>Mysterious special forces operator known for his stealth capabilities and distinctive skull mask. A legend among soldiers.</p>
+                    </div>
+                </div>
+                <div class="character-card">
+                    <div class="character-image"></div>
+                    <div class="character-info">
+                        <h3>Gaz</h3>
+                        <p>Skilled marksman and reconnaissance specialist. Provides crucial intelligence and long-range support for the team.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Requirements Section -->
+    <section class="requirements" id="requirements">
+        <div class="container">
+            <h2 class="section-title orbitron">SYSTEM REQUIREMENTS</h2>
+            <div class="requirements-content">
+                <div class="req-card">
+                    <h3 class="orbitron">MINIMUM REQUIREMENTS</h3>
+                    <ul class="req-list">
+                        <li><strong><i class="fa-brands fa-windows fa-beat-fade"></i> OS:</strong>Windows 10 64-bit</li>
+                        <li><strong><i class="fa-solid fa-microchip fa-beat-fade"></i> Processor:</strong> Intel Core i3-6100 / AMD FX-6300</li>
+                        <li><strong><i class="fa-solid fa-sd-card fa-beat-fade"></i> Memory:</strong> 8 GB RAM</li>
+                        <li><strong><i class="fa-regular fa-images fa-beat-fade"></i> Graphics:</strong> NVIDIA GTX 960 / AMD R9 280</li>
+                        <li><strong><i class="fa-solid fa-diagram-project fa-beat-fade"></i> Network:</strong> Broadband Internet connection</li>
+                        <li><strong><i class="fa-solid fa-database fa-beat-fade"></i> Storage:</strong> 175 GB available space</li>
+                    </ul>
+                </div>
+                <div class="req-card">
+                    <h3 class="orbitron">RECOMMENDED REQUIREMENTS</h3>
+                    <ul class="req-list">
+                        <li><strong><i class="fa-brands fa-windows fa-beat-fade"></i> OS:</strong> Windows 10/11 64-bit</li>
+                        <li><strong><i class="fa-solid fa-microchip fa-beat-fade"></i> Processor:</strong> Intel Core i5-8400 / AMD Ryzen 5 2600</li>
+                        <li><strong><i class="fa-solid fa-sd-card fa-beat-fade"></i> Memory:</strong> 16 GB RAM</li>
+                        <li><strong><i class="fa-regular fa-images fa-beat-fade"></i> Graphics:</strong> NVIDIA RTX 3060 / AMD RX 6600 XT</li>
+                        <li><strong><i class="fa-solid fa-diagram-project fa-beat-fade"></i> Network:</strong> Broadband Internet connection</li>
+                        <li><strong><i class="fa-solid fa-database fa-beat-fade"></i> Storage:</strong> 175 GB SSD space</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download" id="download">
+    <div class="container" id="dwld">
+        <div class="download-left">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Xo5XYVRSR_M" title="University Ki Yadein 2 (Teaser Trailer)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="download-content">
+            <h2 class="section-title orbitron" style="font-size: 2rem;" id="dn">DOWNLOAD NOW</h2>
+            <p>Join millions of players worldwide in the ultimate modern warfare experience. Download now and start your mission.</p>
+            <a href="index.html" class="download-button" id="downloadBtn">DOWNLOAD GAME</a>
+            <div class="download-info">
+                <p>File size: 175 GB | Version: 1.0.0 | Last updated: December 2024</p>
+                <p>Compatible with Windows 10/11 | Free to download</p>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Game Info</h3>
+                    <p>Call of Duty: Modern Warfare</p>
+                    <p>Genre: First-Person Shooter</p>
+                    <p>Platform: PC, PlayStation, Xbox</p>
+                    <p>Release Date: 2024</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <p><a href="#">Help Center</a></p>
+                    <p><a href="#">System Requirements</a></p>
+                    <p><a href="#">Bug Reports</a></p>
+                    <p><a href="#">Contact Support</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Community</h3>
+                    <p><a href="#">Discord Server</a></p>
+                    <p><a href="#">Reddit Community</a></p>
+                    <p><a href="#">Official Forums</a></p>
+                    <p><a href="#">Social Media</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <p><a href="#">Privacy Policy</a></p>
+                    <p><a href="#">Terms of Service</a></p>
+                    <p><a href="#">End User License</a></p>
+                    <p><a href="#">Cookie Policy</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Call of Duty: Modern Warfare. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        // Screenshot slider functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.screenshot');
+        const totalSlides = slides.length;
+        const track = document.getElementById('screenshotTrack');
+        const dots = document.querySelectorAll('.dot');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        function updateSlider() {
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlider();
+        }
+
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentSlide = index;
+                updateSlider();
+            });
+        });
+
+        // Auto-play screenshots
+        setInterval(nextSlide, 5000);
+
+        
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(10, 15, 10, 0.95)';
+            } else {
+                navbar.style.background = 'var(--bg-glass)';
+            }
+        });
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for animations
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+
+        // Touch/swipe support for mobile screenshots
+        let startX = 0;
+        let endX = 0;
+
+        const screenshotViewer = document.querySelector('.screenshot-viewer');
+
+        screenshotViewer.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        });
+
+        screenshotViewer.addEventListener('touchend', (e) => {
+            endX = e.changedTouches[0].clientX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = startX - endX;
+
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            }
+        }
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'970912f124c28e3a',t:'MTc1NTQzMjY4Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
